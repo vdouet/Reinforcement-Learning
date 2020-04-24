@@ -32,8 +32,12 @@ longterm.
 while, with small probability ε, instead select randomly from among all the
 actions with equal probability, independently of the action-value estimates.
 
-**Nonstationary**: True values of the actions changed over time.  
-Nonstationarity is the case most commonly encountered in reinforcement learning
+**Nonstationary**: True values of the actions changed over time. Nonstationarity
+is the case most commonly encountered in reinforcement learning
+
+**Incremental Update Rule**:
+`NewEstimate <- OldEstimate + StepSize[Target - OldEstimate]`
+![alt text](https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/IncrementalUpdateRule.png "Update rule")
 
 **Weighted average sum**: (a = constant)  
 `Qn+1 = a*Rn + (1-a)*Qn`
