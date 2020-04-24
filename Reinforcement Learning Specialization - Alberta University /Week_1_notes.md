@@ -35,6 +35,10 @@ actions with equal probability, independently of the action-value estimates.
 **Nonstationary**: True values of the actions changed over time. Nonstationarity
 is the case most commonly encountered in reinforcement learning
 
+**Sample-Average Method**: Approximate q\*(a) as Qt(a) = sum of rewards when *a*
+taken prior to *t* / number of times *a* taken prior to *t*  
+It is the average of rewards.
+
 **Incremental Update Rule**:
 `NewEstimate <- OldEstimate + StepSize[Target - OldEstimate]`  
 Sample average case:  
@@ -67,12 +71,15 @@ with the rewards it is receiving. The result is that all actions are tried
 several times before the value estimates converge. The system does a fair amount
 of exploration even if greedy actions are selected all the time.  
 This technique can be effective in stationary problem but not well suited for
-nonstationary problems.
+nonstationary problems, also it only drive early exploration. We also may not
+know what the optimistic initial value should be.
 
 **Upper confidence bound (UCB)**:
 Select among the non-greedy actions according to their potential for actually
 being optimal, taking into account both how close their estimates are to being
 maximal and the uncertainties in those estimates.  
+It uses uncertainty in the value estimates for balancing exploration and
+exploitation.  
 All actions will eventually be selected, but actions with lower value estimates,
 or that have already been selected frequently, will be selected with decreasing
 frequency over time.  
@@ -91,3 +98,16 @@ stationary).
 *Posterior sampling* or *Thompson sampling*: In the case of *conjugate priors*
 distributions, select actions at each step according to their posterior
 probability of being the best action
+
+## Real-world Reinforcement Learning
+
+Difference between simulation and reality, large simulator/reality divergence.
+
+For a real-world RL application you may need to shift your priorities.
+Something important in a simulation environment can be less important in a
+real-world environment and vice versa. For example in a simulation you have more
+control over the environment as in the real-world you don't. Also, in the
+real-world you might want your algorithm to generalize better than in a
+simulation where you might prefer greatest rewards. In the real-world you only
+have the samples that it gives you, a limited amount compared to the quasi
+infinite amount of samples you can compute in a simulated environment.
