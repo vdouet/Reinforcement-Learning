@@ -18,7 +18,8 @@ q*(a) is estimated Qt(a)
 
 **Choosing greedy actions**: Exploiting
 
-**Choosing non-greedy actions:** Exploring -> Enable us to improve the estimates of the non-greedy action's value.
+**Choosing non-greedy actions:** Exploring -> Enable us to improve the estimates
+of the non-greedy action's value.
 
 **Conflict**: Exploitation vs Exploration.
 Exploitation can be better in short term but exploration can be better in longterm.
@@ -54,3 +55,11 @@ frequency over time.
 Performs well but more difficult than ε-greedy to extend beyond bandits to the
 more general reinforcement learning settings.
 Also difficulty to deal with nonstationary problems and large state spaces.
+
+**Policy**: A mapping from situations to the actions that are best in those
+situations.
+
+**Associative search task**: Involves both trial-and-error learning to search for
+the best actions, and association of these actions with the situations in which
+they are best. Associative search tasks are often now called *contextual* bandits
+in the literature.
