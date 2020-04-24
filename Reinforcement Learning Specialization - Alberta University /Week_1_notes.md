@@ -6,7 +6,7 @@ dependent of the action taken.
 **Purely instructive feedback**: Indicates what the correct action was independently
 of the action actually taken. It is independent of the action taken.
 
-**q*(a)**: The value of an action -> Expected reward when that action is taken.
+**q\*(a)**: The value of an action -> Expected reward when that action is taken.
 The true value of an action is the mean reward when that action is selected
 q*(a) is estimated Qt(a)
 
