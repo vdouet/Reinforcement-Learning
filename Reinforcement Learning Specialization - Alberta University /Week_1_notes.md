@@ -24,7 +24,7 @@ q*(a) is estimated Qt(a)
 **Choosing non-greedy actions:** Exploring -> Enable us to improve the estimates
 of the non-greedy action's value.
 
-**Conflict**: Exploitation vs Exploration.
+**Conflict**: Exploitation vs Exploration.  
 Exploitation can be better in short term but exploration can be better in
 longterm.
 
@@ -32,10 +32,10 @@ longterm.
 while, with small probability ε, instead select randomly from among all the
 actions with equal probability, independently of the action-value estimates.
 
-**Nonstationary**: True values of the actions changed over time.
+**Nonstationary**: True values of the actions changed over time.  
 Nonstationarity is the case most commonly encountered in reinforcement learning
 
-**Weighted average sum**: (a = constant)
+**Weighted average sum**: (a = constant)  
 `Qn+1 = a*Rn + (1-a)*Qn`
 
 **Policy**: A mapping from situations to the actions that are best in those
@@ -55,19 +55,19 @@ action. Whichever actions are initially selected, the reward is less than the
 starting estimates; the learner switches to other actions, being “disappointed”
 with the rewards it is receiving. The result is that all actions are tried
 several times before the value estimates converge. The system does a fair amount
-of exploration even if greedy actions are selected all the time.
+of exploration even if greedy actions are selected all the time.  
 This technique can be effective in stationary problem but not well suited for
 nonstationary problems.
 
 **Upper confidence bound (UCB)**:
 Select among the non-greedy actions according to their potential for actually
 being optimal, taking into account both how close their estimates are to being
-maximal and the uncertainties in those estimates.
+maximal and the uncertainties in those estimates.  
 All actions will eventually be selected, but actions with lower value estimates,
 or that have already been selected frequently, will be selected with decreasing
-frequency over time.
+frequency over time.  
 Performs well but more difficult than ε-greedy to extend beyond bandits to the
-more general reinforcement learning settings.
+more general reinforcement learning settings.  
 Also difficulty to deal with nonstationary problems and large state spaces.
 
 **Gradient bandit algorithms**: Estimate not action values, but action
@@ -77,7 +77,7 @@ manner using a soft-max distribution.
 **The Gittins-index approach**: is an instance of Bayesian methods, which assume
 a known initial distribution over the action values and then update the
 distribution exactly after each step (assuming that the true action values are
-stationary).
+stationary).  
 *Posterior sampling* or *Thompson sampling*: In the case of *conjugate priors*
 distributions, select actions at each step according to their posterior
 probability of being the best action
