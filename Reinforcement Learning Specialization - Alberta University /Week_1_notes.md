@@ -37,8 +37,11 @@ is the case most commonly encountered in reinforcement learning
 
 **Incremental Update Rule**:
 `NewEstimate <- OldEstimate + StepSize[Target - OldEstimate]`  
-<img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/IncrementalUpdateRule.png" alt="Update rule"
-	title="Update rule" width="281" height="64" />
+Sample average case: <img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/IncrementalUpdateRule.png" alt="Update rule"
+	title="Update rule" width="281" height="64" />  
+Nonstationary case: <img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nonstationnaryRule.png" alt="Update rule"
+	title="Update rule" width="337" height="85" />  
+
 
 **Weighted average sum**: (a = constant)  
 `Qn+1 = a*Rn + (1-a)*Qn`
