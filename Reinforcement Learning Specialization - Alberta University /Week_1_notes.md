@@ -1,10 +1,13 @@
 # Week 1
 
+## Definitions
+
 **Purely evaluative feedback**: Indicates how good the action taken was. It is
 dependent of the action taken.
 
-**Purely instructive feedback**: Indicates what the correct action was independently
-of the action actually taken. It is independent of the action taken.
+**Purely instructive feedback**: Indicates what the correct action was
+independently of the action actually taken. It is independent of the action
+taken.
 
 **q\*(a)**: The value of an action -> Expected reward when that action is taken.
 The true value of an action is the mean reward when that action is selected
@@ -22,17 +25,28 @@ q*(a) is estimated Qt(a)
 of the non-greedy action's value.
 
 **Conflict**: Exploitation vs Exploration.
-Exploitation can be better in short term but exploration can be better in longterm.
+Exploitation can be better in short term but exploration can be better in
+longterm.
 
-**ε-greedy methods**: behave greedily most of the time, but every once in a while,
-with small probability ε, instead select randomly from among all the actions
-with equal probability, independently of the action-value estimates.
+**ε-greedy methods**: behave greedily most of the time, but every once in a
+while, with small probability ε, instead select randomly from among all the
+actions with equal probability, independently of the action-value estimates.
 
 **Nonstationary**: True values of the actions changed over time.
 Nonstationarity is the case most commonly encountered in reinforcement learning
 
 **Weighted average sum**: (a = constant)
 `Qn+1 = a*Rn + (1-a)*Qn`
+
+**Policy**: A mapping from situations to the actions that are best in those
+situations.
+
+**Associative search task**: Involves both trial-and-error learning to search
+for the best actions, and association of these actions with the situations in
+which they are best. Associative search tasks are often now called *contextual*
+bandits in the literature.
+
+## Exploration and exploitation balancing methods
 
 **Optimistic Initial Values**: Set all initial actions to an optimistic value.
 Encourages action-value methods to explore. The reward for each action will be
@@ -56,10 +70,14 @@ Performs well but more difficult than ε-greedy to extend beyond bandits to the
 more general reinforcement learning settings.
 Also difficulty to deal with nonstationary problems and large state spaces.
 
-**Policy**: A mapping from situations to the actions that are best in those
-situations.
+**Gradient bandit algorithms**: Estimate not action values, but action
+preferences, and favor the more preferred actions in a graded, probabilistic
+manner using a soft-max distribution.
 
-**Associative search task**: Involves both trial-and-error learning to search for
-the best actions, and association of these actions with the situations in which
-they are best. Associative search tasks are often now called *contextual* bandits
-in the literature.
+**The Gittins-index approach**: is an instance of Bayesian methods, which assume
+a known initial distribution over the action values and then update the
+distribution exactly after each step (assuming that the true action values are
+stationary).
+*Posterior sampling* or *Thompson sampling*: In the case of *conjugate priors*
+distributions, select actions at each step according to their posterior
+probability of being the best action
