@@ -38,7 +38,11 @@ is the case most commonly encountered in reinforcement learning
 **Incremental Update Rule**:
 `NewEstimate <- OldEstimate + StepSize[Target - OldEstimate]`
 <img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/IncrementalUpdateRule.png" alt="Update rule"
+<<<<<<< HEAD
 	title="Update rule" width="176" height="41" />
+=======
+	title="Update rule" width="150" height="100" />
+>>>>>>> a294c6cae06749f493f6b638ad79c1d039c68ede
 
 **Weighted average sum**: (a = constant)  
 `Qn+1 = a*Rn + (1-a)*Qn`
