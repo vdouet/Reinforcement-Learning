@@ -21,4 +21,4 @@ responds to these actions and presents new situations to the agent.
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/agentenvironmentinterface.png"
 alt="Update rule"
-	title="Update rule" width="503" height="181" />  
+	title="Update rule" width="377" height="136" />  
