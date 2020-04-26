@@ -131,10 +131,13 @@ The reward is for communicating what to achieve not how to achieve it.
 There is still some exception where some intermediate small rewards can make a
 big difference in helping the agent to the right direction. Even if we accept
 the reward hypothesis there is still work to do to define the right rewards.
-
-Standard RL algorithms don't respond well to nonstationary rewards. For
-example, an user who gives rewards in real-time, the rewards will not always be
-the same for the same states depending on how the user reacts.
+The hypothesis should not be taken too litterally and we should be able to
+reject the hypothesis when it has outlived its usefulness. For example when the
+target is something other than expected cumulative reward. Or is the
+maximization of cumulative rewards the best match for high-level human-like
+behavior?  
+Maximizing rewards might be an excellent **approximation** of what motivates
+intelligent agents.
 
 Examples of rewards:  
 To make a robot learn to walk, researchers have provided reward on each time
@@ -148,14 +151,25 @@ it bumps into things or when somebody yells at it.
 For an agent to learn to play checkers of chess, the natural rewards are +1 for
 winning, -1 for losing, and 0 for drawing and for all nonterminal positions.
 
+Standard RL algorithms don't respond well to nonstationary rewards. For
+example, an user who gives rewards in real-time, the rewards will not always be
+the same for the same states depending on how the user reacts.
+
 ### Where do rewards come from ?
 
-+ Programming
-..+ Coding: Coding the rewards from states once and for all.
-..+ Human-in-the-loop: An user can give rewards in real-time to the algorithm.
-+ Examples
-..+ Mimic reward: An agent learning to copy the reward that a person gives.
-..+  
++ Programming  
+\- Coding: Coding the rewards from states once and for all.  
+\- Human-in-the-loop: An user can give rewards in real-time to the algorithm.
+
++ Examples  
+\- Mimic reward: An agent learning to copy the reward that a person gives.  
+\- Inverse reinforcement learning: A trainer demonstrate an example of the
+desired behavior and the learner figures out what reward the trainer must have
+been maximizing that makes this behavior optimal.
+
++ Optimization
+-\ Evolutionary optimization
+-\ Meta RL
 
 
 ## Returns and Episodes
