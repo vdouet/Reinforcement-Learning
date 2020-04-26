@@ -130,11 +130,8 @@ The reward is for communicating what to achieve not how to achieve it.
 
 Examples of rewards:  
 To make a robot learn to walk, researchers have provided reward on each time
-step proportional to the robot’s forward motion.
-AAAAAAAAABHHXHKJSBKXSKSJCKSCHKSHCSHCLSCHKSCHSKCHSCKCHKSJCHSKHCSKJHSKChskhckshckqshckjqhskcqhskchqskcq
-sjchqkschkqskchqskchksqcqshsjq skjqckqshjskqdhqsjdhqksdhkqsjdhkqsh
-qhqskhdkqshdkqshdksqjd qsk jkqshdqsdkjhqks hqks dkqshdq kdqhsd qsd kqshd qsjdk
-qskd qjsdj qskdhqk dhkq ksdqskdskdqskqsdk jqsk
+step proportional to the robot’s forward motion. +1
+
 
 ## Returns and Episodes
 
