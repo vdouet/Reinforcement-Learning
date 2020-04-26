@@ -132,7 +132,13 @@ Examples of rewards:
 To make a robot learn to walk, researchers have provided reward on each time
 step proportional to the robot’s forward motion. In making a robot learn how to
 escape from a maze, the reward is often 1 for every time step that passes prior
-to escape;
+to escape; this encourages the agent escape as quickly as possible.  
+To make a robot learn to find and collect empty soda cans for recycling, one
+might give it a reward of zero most of the time, and then a reward of +1 for
+each can collected. One might also want to give the robot negative rewards when
+it bumps into things or when somebody yells at it. For an agent to learn to
+play checkers of chess, the natural rewards are +1 for winning, -1 for losing,
+and 0 for drawing and for all nonterminal positions.
 
 
 ## Returns and Episodes
