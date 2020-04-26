@@ -111,3 +111,19 @@ between an agent and its environment: one signal to represent the choices made
 by the agent (the actions), one signal to represent the basis on which the
 choices are made (the states), and one signal to define the agent’s goal (the
 rewards).
+
+## Goals and Rewards
+
+In reinforcement learning the goal of the agent is to maximize the total
+amount of reward it receives. This means maximizing not immediate reward, but
+cumulative reward in the long run.
+The *reward hypothesis*:
+All of what we mean by goals and purposes can be well thought of as the
+maximization of the expected value of the cumulative sum of a received scalar
+signal (called reward). We must provide rewards to the agent in such a way that
+in maximizing them it will also achieve our goals. It is thus critical that the
+rewards we set up truly indicate what we want accomplished. For example, a
+chess-playing agent should be rewarded only for actually winning, not for
+achieving subgoals such as taking its opponent’s pieces or gaining control of
+the center of the board.  
+The reward is for communicating what to achieve not how to achieve it.
