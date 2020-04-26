@@ -1,4 +1,4 @@
-# Week 1
+# Week 1 - Multi-armed Bandits
 
 ## Definitions
 
@@ -47,10 +47,6 @@ Sample average case:
 Nonstationary case:  
 <img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nonstationnaryRule.png" alt="Update rule"
 	title="Update rule" width="303" height="76" />  
-
-
-**Weighted average sum**: (a = constant)  
-`Qn+1 = a*Rn + (1-a)*Qn`
 
 **Policy**: A mapping from situations to the actions that are best in those
 situations.
