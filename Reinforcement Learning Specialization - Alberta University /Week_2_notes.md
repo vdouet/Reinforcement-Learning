@@ -128,10 +128,18 @@ achieving subgoals such as taking its opponent’s pieces or gaining control of
 the center of the board.  
 The reward is for communicating what to achieve not how to achieve it.
 
+There is still some exception where some intermediate small rewards can make a
+big difference in helping the agent to the right direction. Even if we accept
+the reward hypothesis there is still work to do to define the right rewards.
+
+Standard RL algorithms don't respond well to nonstationary rewards. For
+example, an user who gives rewards in real-time, the rewards will not always be
+the same for the same states depending on how the user reacts.
+
 Examples of rewards:  
 To make a robot learn to walk, researchers have provided reward on each time
 step proportional to the robot’s forward motion. In making a robot learn how to
-escape from a maze, the reward is often 1 for every time step that passes prior
+escape from a maze, the reward is often -1 for every time step that passes prior
 to escape; this encourages the agent escape as quickly as possible.  
 To make a robot learn to find and collect empty soda cans for recycling, one
 might give it a reward of zero most of the time, and then a reward of +1 for
@@ -139,6 +147,15 @@ each can collected. One might also want to give the robot negative rewards when
 it bumps into things or when somebody yells at it.  
 For an agent to learn to play checkers of chess, the natural rewards are +1 for
 winning, -1 for losing, and 0 for drawing and for all nonterminal positions.
+
+### Where do rewards come from ?
+
++ Programming
+..+ Coding: Coding the rewards from states once and for all.
+..+ Human-in-the-loop: An user can give rewards in real-time to the algorithm.
++ Examples
+..+ Mimic reward: An agent learning to copy the reward that a person gives.
+..+  
 
 
 ## Returns and Episodes
