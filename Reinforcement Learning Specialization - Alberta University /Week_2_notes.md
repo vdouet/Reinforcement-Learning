@@ -168,7 +168,7 @@ desired behavior and the learner figures out what reward the trainer must have
 been maximizing that makes this behavior optimal.
 
 + Optimization
--\ Evolutionary optimization
+-\ Evolutionary optimization  
 -\ Meta RL
 
 
