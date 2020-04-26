@@ -164,4 +164,7 @@ src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%
 alt="Update rule" title="Update rule" width="360" height="45" />
 </p>
 Gamma is a parameter between 0 and 1 called the *discount rate*. It determines
-the present value of future rewards
+the present value of future rewards. If gamme = 0 the agent is considered
+"*myopic*" in being concerned only to maximize immediate rewards. As gamma
+approches 1, the return objective takes future rewards into account more
+strongly; the agent becomes more farsighted.
