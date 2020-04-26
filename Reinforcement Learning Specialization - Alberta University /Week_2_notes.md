@@ -130,7 +130,9 @@ The reward is for communicating what to achieve not how to achieve it.
 
 Examples of rewards:  
 To make a robot learn to walk, researchers have provided reward on each time
-step proportional to the robot’s forward motion. +1
+step proportional to the robot’s forward motion. In making a robot learn how to
+escape from a maze, the reward is often 1 for every time step that passes prior
+to escape;
 
 
 ## Returns and Episodes
@@ -140,7 +142,7 @@ considered to end in the same terminal state, with different rewards for the
 different outcomes. Tasks with episodes of this kind are called *episodic
 tasks.*  
 In episodic tasks we sometimes need to distinguish the set of all nonterminal
-states, denoted S, from the set of all states plus \+ the terminal state,
+states, denoted S, from the set of all states plus the terminal state,
 denoted S\+. The time of termination, T, is a random variable that normally
 varies from episode to episode.  
 In many cases the agent–environment interaction does not break naturally into
