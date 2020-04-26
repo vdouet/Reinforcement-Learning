@@ -136,9 +136,9 @@ to escape; this encourages the agent escape as quickly as possible.
 To make a robot learn to find and collect empty soda cans for recycling, one
 might give it a reward of zero most of the time, and then a reward of +1 for
 each can collected. One might also want to give the robot negative rewards when
-it bumps into things or when somebody yells at it. For an agent to learn to
-play checkers of chess, the natural rewards are +1 for winning, -1 for losing,
-and 0 for drawing and for all nonterminal positions.
+it bumps into things or when somebody yells at it.  
+For an agent to learn to play checkers of chess, the natural rewards are +1 for
+winning, -1 for losing, and 0 for drawing and for all nonterminal positions.
 
 
 ## Returns and Episodes
