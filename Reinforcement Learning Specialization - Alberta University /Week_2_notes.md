@@ -167,7 +167,7 @@ the same for the same states depending on how the user reacts.
 desired behavior and the learner figures out what reward the trainer must have
 been maximizing that makes this behavior optimal.
 
-+ Optimization
++ Optimization  
 -\ Evolutionary optimization  
 -\ Meta RL
 
