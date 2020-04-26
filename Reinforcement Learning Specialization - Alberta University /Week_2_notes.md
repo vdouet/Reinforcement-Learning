@@ -20,10 +20,11 @@ rewards (*S*, *A*, and *R*).
 
 ## Agent–Environment Interface
 
+<p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/agentenvironmentinterface.png"
-alt="Update rule"
-	title="Update rule" width="377" height="136" />
+alt="Update rule" title="Update rule" width="377" height="136" />
+</p>
 
 The agent select actions and the environment responds to these actions and
 presents new situations to the agent. At each time step *t* the agent receives
@@ -42,10 +43,11 @@ in the literature.
 In *finite* MDP the random variables *St* and *Rt* have well defined discrete
 probability distribution dependent only on the preceding state and action.
 
+<p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/MDPdynamics.png"
-alt="Update rule"
-	title="Update rule" width="341" height="28" />
+alt="Update rule" title="Update rule" width="341" height="28" />
+</p>
 
 The function *p* defines the *dynamics* of the MDP. This function is an
 ordinary deterministic function of four arguments. It reminds us that *p*
