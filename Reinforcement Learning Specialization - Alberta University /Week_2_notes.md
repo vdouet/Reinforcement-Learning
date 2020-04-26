@@ -34,7 +34,7 @@ The MDP and agent give rise to a sequence or *trajectory*: *S0, A0, R1, S1,
 A1, R2, S2, A2, R3,* ...  
 
 
-__Attention__**: We use *Rt+1* instead of *Rt* to denote the reward due to
+_Attention_**: We use *Rt+1* instead of *Rt* to denote the reward due to
 *At* because it emphasizes that the next reward and next state, *Rt+1* and
 *St+1*, are jointly determined. Unfortunately, both conventions are widely used
 in the literature.
@@ -51,7 +51,8 @@ The function *p* defines the *dynamics* of the MDP. This function is an
 ordinary deterministic function of four arguments. It reminds us that *p*
 specifies a probability distribution for each choice of *s* and *a*.
 
+<p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/pfunction.png"
-alt="Update rule"
-	title="Update rule" width="313" height="41" />
+alt="Update rule" title="Update rule" width="313" height="41" />
+</p>
