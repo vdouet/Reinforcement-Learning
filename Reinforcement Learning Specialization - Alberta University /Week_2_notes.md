@@ -194,8 +194,18 @@ Due to the infinite nature of continuous tasks we want to maximize the expected
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/discountedreturn.png"
 alt="Update rule" title="Update rule" width="360" height="45" />
 </p>
+
 Gamma is a parameter between 0 and 1 called the *discount rate*. It determines
 the present value of future rewards. If gamma = 0 the agent is considered
 "*myopic*" in being concerned only to maximize immediate rewards. As gamma
 approches 1, the return objective takes future rewards into account more
 strongly; the agent becomes more farsighted.
+
+Returns at successive time steps are related to each other in a way that is
+important for the theory and algorithms of reinforcement learning:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/discountedreturn2.png"
+alt="Update rule" title="Update rule" width="330" height="74" />
+</p>
