@@ -17,6 +17,7 @@ we estimate the value v\*(s) of each state given optimal action selections.
 
 **Agent–Environment Interface**: The agent select actions and the environment
 responds to these actions and presents new situations to the agent.
+
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/agentenvironmentinterface.png"
 alt="Update rule"
