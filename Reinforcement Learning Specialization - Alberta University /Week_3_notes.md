@@ -11,6 +11,8 @@ terms of expected return.
 **Policy**: Mapping from states to probabilities of selecting each possible
 action.
 
+**Optimal Policy**: Policy that is better than or equal to all other policies.
+
 ## Policies and Value Functions
 
 Value functions are defined with respect to particular way of acting, called
@@ -106,3 +108,23 @@ alt="Update rule" title="Update rule" width="338" height="98" />
 </p>
 
 ## Optimal Policies and Optimal Value Functions
+
+Solving a reinforcement learning task means, roughly, finding a policy that
+achieves a lot of reward over the long run. A policy *π* is defined to be better
+than or equal to a policy *π'* if its expected return is greater than or equal
+to that of *π'* for all states. *π* >= *π'* if *vπ(s)* >= *vπ'(s)*. This is
+called an *optimal policy* and is denoted *π\**. They may be more than one
+optimal policy and all share the same state-value function and action-value
+function called *optimal state-value function* and *optimal action-value
+function* denoted *v\** and *q\**
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vstar.png"
+alt="Update rule" title="Update rule" width="134" height="31" />
+</p>
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qstar.png"
+alt="Update rule" title="Update rule" width="163" height="34" />
+</p>
