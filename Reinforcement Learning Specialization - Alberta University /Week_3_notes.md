@@ -78,7 +78,7 @@ solution to its Bellman equation.
 <p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagram.png"
-alt="Update rule" title="Update rule" width="394" height="306" />
+alt="Update rule" title="Update rule" width="158" height="122" />
 </p>
 
 We call diagrams like that above *backup diagrams* because they diagram
