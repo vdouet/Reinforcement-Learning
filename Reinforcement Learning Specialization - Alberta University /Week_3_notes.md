@@ -41,3 +41,15 @@ alt="Update rule" title="Update rule" width="546" height="68" />
 </p>
 
 *qπ* is called the *action-value function for policy π*
+
+*vπ* and *qπ* can be estimated from experience. For example, if an agent
+follows policy π and maintains an average, for each state encountered, of the
+actual returns that have followed that state, then the average will converge to
+the state’s value, *vπ(s)*, as the number of times that state is encountered
+approaches infinity. If separate averages are kept for each action taken in
+each state, then these averages will similarly converge to the action values,
+*qπ(s,a)*. We call estimation methods of this kind *Monte Carlo methods* because
+they involve averaging over many random samples of actual returns.
+
+A fundamental property of value functions used throughout reinforcement
+learning and dynamic programming is that they satisfy recursive relationships
