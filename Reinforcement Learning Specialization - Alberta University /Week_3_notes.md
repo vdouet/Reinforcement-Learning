@@ -86,3 +86,23 @@ relationships that form the basis of the update or *backup* operations that are
 at the heart of RL methods. These operations transfer value information *back*
 to a state (or state-action pair) from its successor states (or state-action
 pairs)
+
+The value of a state depends on the values of the actions possible in that state
+and on how likely each action is to be taken under the current policy:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramv.png"
+alt="Update rule" title="Update rule" width="424" height="88" />
+</p>
+
+The value of an action, *qπ(s,a)*, depends on the expected next reward and the
+expected sum of the remaining rewards.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramq.png"
+alt="Update rule" title="Update rule" width="338" height="98" />
+</p>
+
+## Optimal Policies and Optimal Value Functions
