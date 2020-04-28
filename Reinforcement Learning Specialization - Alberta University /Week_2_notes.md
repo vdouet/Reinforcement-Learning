@@ -118,7 +118,7 @@ In reinforcement learning the goal of the agent is to maximize the total
 amount of reward it receives. This means maximizing not immediate reward, but
 cumulative reward in the long run.
 The *reward hypothesis*:  
-*All of what we mean by goals and purposes can be well thought of as the
+*"All of what we mean by goals and purposes can be well thought of as the
 maximization of the expected value of the cumulative sum of a received scalar
 signal (called reward)."*  
 We must provide rewards to the agent in such a way that in maximizing them it
