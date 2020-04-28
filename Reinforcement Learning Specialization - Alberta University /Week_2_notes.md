@@ -120,12 +120,12 @@ cumulative reward in the long run.
 The *reward hypothesis*:  
 *All of what we mean by goals and purposes can be well thought of as the
 maximization of the expected value of the cumulative sum of a received scalar
-signal (called reward). We must provide rewards to the agent in such a way that
-in maximizing them it will also achieve our goals."*  
-It is thus critical that the rewards we set up truly indicate what we want
-accomplished. For example, a chess-playing agent should be rewarded only for
-actually winning, not for achieving subgoals such as taking its opponent’s
-pieces or gaining control of the center of the board.  
+signal (called reward)."*  
+We must provide rewards to the agent in such a way that in maximizing them it
+will also achieve our goals.  It is thus critical that the rewards we set up
+truly indicate what we want accomplished. For example, a chess-playing agent
+should be rewarded only for actually winning, not for achieving subgoals such
+as taking its opponent’s pieces or gaining control of the center of the board.  
 The reward is for communicating what to achieve not how to achieve it.
 
 There is still some exception where some intermediate small rewards can make a
