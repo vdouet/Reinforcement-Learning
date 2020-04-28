@@ -52,4 +52,37 @@ each state, then these averages will similarly converge to the action values,
 they involve averaging over many random samples of actual returns.
 
 A fundamental property of value functions used throughout reinforcement
-learning and dynamic programming is that they satisfy recursive relationships
+learning and dynamic programming is that they satisfy recursive relationships.
+For any policy *π* and any state *s*, the following consistency condition holds
+between the value of *s* and the value of its possible successor states:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/valuefunctionrecursive.png"
+alt="Update rule" title="Update rule" width="472" height="150" />
+</p>
+
+Equation (3.14) is the *Bellman equation* for *vπ*. It expresses a relationship
+between the value of a state and the values of its successor states. On the
+following diagram, each open circle represents a state and each solid circle
+represents a state–action pair. Starting from state *s*, the root node at the
+top, the agent could take any of some set of actions based on its policy *π*.
+From each of these, the environment could respond with one of several next
+states, *s'*, along with a reward *r*, depending on its dynamics given by the
+function *p*. The Bellman equation (3.14) averages over all the possibilities,
+weighting each by its probability of occurring. It states that the value of the
+start state must equal the (discounted) value of the expected next state, plus
+the reward expected along the way. The value function *vπ* is the unique
+solution to its Bellman equation.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagram.png"
+alt="Update rule" title="Update rule" width="394" height="306" />
+</p>
+
+We call diagrams like that above *backup diagrams* because they diagram
+relationships that form the basis of the update or *backup* operations that are
+at the heart of RL methods. These operations transfer value information *back*
+to a state (or state-action pair) from its successor states (or state-action
+pairs)
