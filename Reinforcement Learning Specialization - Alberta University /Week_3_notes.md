@@ -128,3 +128,40 @@ alt="Update rule" title="Update rule" width="134" height="31" />
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qstar.png"
 alt="Update rule" title="Update rule" width="163" height="34" />
 </p>
+
+For the state–action pair *(s,a)*, the *q\** function gives the expected return
+for taking action *a* in state *s* and thereafter following an optimal policy.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qstarvstar.png"
+alt="Update rule" title="Update rule" width="328" height="31" />
+</p>
+
+The optimal action-value function gives the values after committing to a
+particular first action, but afterward using whichever actions are best.
+
+The Bellman equation for *v\** and *q\** can be written in special form without
+reference to any specific policy. This is the *Bellman optimality equation*
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/bellmanv.png"
+alt="Update rule" title="Update rule" width="354" height="178" />
+</p>
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/bellmanq.png"
+alt="Update rule" title="Update rule" width="438" height="95" />
+</p>
+
+The backup diagram for *v\** and *q\** are the same as for *vπ* and *qπ* except
+that arcs have been added at the agent’s choice points to represent that the
+maximum over that choice is taken rather than the expected value given some
+policy.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramqvstar.png"
+alt="Update rule" title="Update rule" width="398" height="134" />
+</p>
