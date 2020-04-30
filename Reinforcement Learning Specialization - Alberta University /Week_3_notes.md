@@ -165,3 +165,22 @@ policy.
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramqvstar.png"
 alt="Update rule" title="Update rule" width="398" height="134" />
 </p>
+
+Solving the Bellman optimality equation provides one route to finding an
+optimal policy, and thus to solving the reinforcement learning problem.
+However, this solution is rarely directly useful. This solution relies on at
+least three assumptions that are rarely true in practice: (1) we accurately
+know the dynamics of the environment; (2) we have enough computational
+resources to complete the computation of the solution; and (3) the Markov
+property. For the kinds of tasks in which we are interested, one is generally
+not able to implement this solution exactly because various combinations of
+these assumptions are violated. Many reinforcement learning methods can be
+clearly understood as approximately solving the Bellman optimality equation,
+using actual experienced transitions in place of knowledge of the expected
+transitions.
+
+The online nature of reinforcement learning makes it possible to approximate
+optimal policies in ways that put more e↵ort into learning to make good
+decisions for frequently encountered states, at the expense of less e↵ort for
+infrequently encountered states. This is one key property that distinguishes
+reinforcement learning from other approaches to approximately solving MDPs.
