@@ -95,7 +95,7 @@ optimality equation).
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement2.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement3.png"
 alt="Update rule" title="Update rule" width="387" height="85" />
 </p>
 
