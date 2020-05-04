@@ -13,9 +13,9 @@ state and action spaces, exact solutions are possible only in special cases.
 **Policy Evaluation/Prediction Problem**: How to compute the state-value
 function *vπ* for an arbitrary policy *π*.
 
-**Policy Improvement**: Process of making a new policy that improves on an
-original policy, by making it greedy with respect to the value function of
-the original policy
+**Policy Improvement/Control**: Process of making a new policy that improves on
+an original policy, by making it greedy with respect to the value function of
+the original policy.
 
 **Policy Iteration**: Evaluate and improve policies until reaching an optimal
 one.
