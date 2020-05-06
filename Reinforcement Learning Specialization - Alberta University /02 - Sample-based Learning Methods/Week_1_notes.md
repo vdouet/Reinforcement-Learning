@@ -112,3 +112,27 @@ For Monte Carlo policy iteration it is natural to alternate between evaluation
 and improvement on an episode-by-episode basis. After each episode, the
 observed returns are used for policy evaluation, and then the policy is
 improved at all the states visited in the episode.
+
+## Monte Carlo Control without Exploring Starts
+
+There is two methods to avoid the assumption of exploring starts, resulting in
+what we call on-policy methods and off-policy methods:
++ On-policy methods attempt to evaluate or improve the policy that is used to
+make decisions.
++ Off-policy methods evaluate or improve a policy different from that used to
+generate the data.  
+
+In on-policy control methods the policy is generally *soft*, meaning that
+*π(a|s)* > 0 for all *s* in *S* and all *a* in *A(s)*, but gradually shifted
+closer and closer to a deterministic optimal policy. Many of the method for the
+k-armed bandit provide mechanisms for this. The on-policy method we choose here
+uses *ε-greedy* policies. The *ε-greedy* policies are examples of *ε-soft*
+policies, defined as policies for which *π(a|s)* >= *ε/|A(s)|* for all states
+and actions, for some *ε > 0*. Among *ε-soft* policies, *ε-greedy* policies are
+in some sense those that are closest to greedy.  
+The overall idea of on-policy Monte Carlo control is still that of GPI.
+Fortunately, GPI does not require that the policy be taken all the way to a
+greedy policy, only that it be moved *toward* a greedy policy. In our on-policy
+method we will move it only to an ε-greedy policy. For any ε-soft policy, *π*,
+any ε-greedy policy with respect to *qπ* is guaranteed to be better than or
+equal to *π*.
