@@ -1,0 +1,114 @@
+# Week 1 - Monte Carlo Methods
+
+## Definitions
+
+**Experience**: Sample sequences of states, actions, and rewards from actual or
+simulated interaction with an environment. Learning from *actual* experience
+requires no prior knowledge of the environment’s dynamics, yet can still attain
+optimal behavior. Learning from simulated experience is also powerful. Although
+a model is required, the model need only generate sample transitions, not the
+complete probability distributions of all possible transitions that is required
+for dynamic programming (DP).
+
+**Monte Carlo methods**: Ways of solving the reinforcement learning problem
+based on averaging sample returns. Here Monte Carlo is use specifically for
+methods based on averaging complete returns (as opposed to methods that learn
+from partial returns).
+
+## Monte Carlo Prediction
+
+For example, we can estimate the value of a given state by averaging the
+returns observed after visits to that state. As more returns are observed, the
+average should converge to the expected value. This idea underlies all Monte
+Carlo methods.  
+Each occurrence of state *s* in an episode is called a visit to *s*. The first
+time it is visited is called *first visit* to *s*.  
+The *first-visit MC method* estimates *vπ(s)* as the average of the returns
+following first visits to *s*. The *every-visit MC method* averages the returns
+following all visits to *s*. Both first-visit MC and every-visit MC converge to
+*vπ(s)* as the number of visits (or first visits) to *s* goes to infinity.  
+In backup diagram for Monte Carlo estimation of *vπ*, the root is a state node,
+and below it is the entire trajectory of transitions along a particular single
+episode, ending at the terminal state. Whereas the DP diagram shows all
+possible transitions, the Monte Carlo diagram shows only those sampled on the
+one episode. Whereas the DP diagram includes only one-step transitions, the
+Monte Carlo diagram goes all the way to the end of the episode. These
+differences in the diagrams accurately reflect the fundamental differences
+between the algorithms.  
+An important fact about Monte Carlo methods is that the estimates for each
+state are independent. The estimate for one state does not build upon the
+estimate of any other state, as is the case in DP. In other words, Monte Carlo
+methods do not *bootstrap*.  
+The computational expense of estimating the value of a single state is
+independent of the number of states. This can make Monte Carlo methods
+particularly attractive when one requires the value of only one or a subset of
+states. One can generate many sample episodes starting from the states of
+interest, averaging returns from only these states, ignoring all others. This
+is a third advantage Monte Carlo methods can have over DP methods (after the
+ability to learn from actual experience and from simulated experience).
+
+## Monte Carlo Estimation of Action Values
+
+If a model is not available, then it is particularly useful to estimate action
+values rather than state values. With a model, state values alone are
+sufficient to determine a policy; one simply looks ahead one step and chooses
+whichever action leads to the best combination of reward and next state.
+Without a model, however, state values alone are not sufficient. One must
+explicitly estimate the value of each action in order for the values to be
+useful in suggesting a policy. Thus, one of our primary goals for Monte Carlo
+methods is to estimate *q\**. Monte Carlo methods for this are essentially the
+same as just presented for state values, except now we talk about visits to a
+state–action pair rather than to a state. A state– action pair *s*, *a* is said
+to be visited in an episode if ever the state *s* is visited and action *a* is
+taken in it. The only complication is that many state–action pairs may never be
+visited. If *π* is a deterministic policy, then in following *π* one will
+observe returns only for one of the actions from each state. This is a serious
+problem because the purpose of learning action values is to help in choosing
+among the actions available in each state. To compare alternatives we need to
+estimate the value of *all* the actions from each state.  
+This is the general problem of *maintaining exploration*. One way to do this is
+by specifying that the episodes start in a *state–action pair*, and that every
+pair has a nonzero probability of being selected as the start. We call this the
+assumption of *exploring starts*. The assumption of exploring starts is
+sometimes useful, but it cannot be relied upon in general, particularly when
+learning directly from actual interaction with an environment. The most common
+alternative approach to assuring that all state–action pairs are encountered is
+to consider only policies that are stochastic with a nonzero probability of
+selecting all actions in each state.
+
+## Monte Carlo Control
+
+Policy evaluation is done exactly as described in Monte Carlo estimation of
+action values. Many episodes are experienced, with the approximate action-value
+function approaching the true function asymptotically. Assuming an infinite
+number of episodes and exploring starts the Monte Carlo methods will compute
+each *qπk* exactly, for arbitrary *πk*.
+Policy improvement is done by making the policy greedy with respect to the
+current value function. In this case we have an action-value function, and
+therefore no model is needed to construct the greedy policy. For any
+action-value function *q*, the corresponding greedy policy is the one that, for
+each *s* in *S*, deterministically chooses an action with maximal action-value.
+Policy improvement then can be done by constructing each *πk+1* as the greedy
+policy with respect to *qπk*.  
+In this way Monte Carlo methods can be used to find optimal policies given only
+sample episodes and no other knowledge of the environment’s dynamics.
+We can use ways to remove the assumption that policy evaluation operates on an
+infinite number of episodes:  
++ One is to hold firm to the idea of approximating *qπk* in
+each policy evaluation. Measurements and assumptions are made to obtain bounds
+on the magnitude and probability of error in the estimates, and then sufficient
+steps are taken during each policy evaluation to assure that these bounds are
+sufficient small. But it is likely to require far too many episodes to be useful
+in practice on any but the smallest problems.
++ One other is to give up trying to complete policy evaluation before returning
+to policy improvement. On each evaluation step we move the value function
+toward *qπk*, but we do not expect to actually get close except over many
+steps. One extreme form of the idea is value iteration, in which only one
+iteration of iterative policy evaluation is performed between each step of
+policy improvement. The in-place version of value iteration is even more
+extreme; there we alternate between improvement and evaluation steps for single
+states.  
+For Monte Carlo policy iteration it is natural to alternate between evaluation
+and improvement on an episode-by-episode basis. After each episode, the
+observed returns are used for policy evaluation, and then the policy is
+improved at all the states visited in the episode.
