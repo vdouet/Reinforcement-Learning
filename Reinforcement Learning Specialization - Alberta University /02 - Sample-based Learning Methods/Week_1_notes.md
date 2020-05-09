@@ -196,3 +196,39 @@ alt="Update rule" title="Update rule" width="145" height="22" />
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Gtratiopi.png"
 alt="Update rule" title="Update rule" width="214" height="30" />
 </p>
+
+When importance sampling is done as a simple average it is called *ordinary
+importance sampling* (see p.104 for notation).
+
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/ordinaryimportancesampling.png"
+alt="Update rule" title="Update rule" width="214" height="67" />
+</p>
+
+An important alternative is *weighted importance sampling*, which uses a
+*weighted* average, defined as (or zero if the denominator is zero):
+
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/weightedimportancesampling.png"
+alt="Update rule" title="Update rule" width="205" height="56" />
+</p>
+
+The difference between the first-visit methods of the two kinds of importance
+sampling is expressed in their biases and variances. Ordinary importance
+sampling is unbiased whereas weighted importance sampling is biased (though the
+bias converges asymptotically to zero). On the other hand, the variance of
+ordinary importance sampling is in general unbounded because the variance of
+the ratios can be unbounded, whereas in the weighted estimator the largest
+weight on any single return is one. In fact, assuming bounded returns, the
+variance of the weighted importance-sampling estimator converges to zero even
+if the variance of the ratios themselves is infinite. In practice, the weighted
+estimator usually has dramatically lower variance and is strongly preferred.
+
+The every-visit methods for ordinary and weighed importance sampling are both
+biased, though, again, the bias falls asymptotically to zero as the number of
+samples increases. In practice, every-visit methods are often preferred because
+they remove the need to keep track of which states have been visited and
+because they are much easier to extend to approximations.
+
+## Incremental Implementation
+
