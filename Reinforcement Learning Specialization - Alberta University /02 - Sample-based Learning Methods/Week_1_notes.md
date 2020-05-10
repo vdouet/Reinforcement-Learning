@@ -200,6 +200,7 @@ alt="Update rule" title="Update rule" width="214" height="30" />
 When importance sampling is done as a simple average it is called *ordinary
 importance sampling* (see p.104 for notation).
 
+<p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/ordinaryimportancesampling.png"
 alt="Update rule" title="Update rule" width="214" height="67" />
@@ -208,6 +209,7 @@ alt="Update rule" title="Update rule" width="214" height="67" />
 An important alternative is *weighted importance sampling*, which uses a
 *weighted* average, defined as (or zero if the denominator is zero):
 
+<p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/weightedimportancesampling.png"
 alt="Update rule" title="Update rule" width="205" height="56" />
@@ -240,11 +242,13 @@ Carlo methods using weighted importance sampling we have to form a weighted
 average of the returns, and a slightly different incremental algorithm is
 required.
 
+<p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincremental.png"
 alt="Update rule" title="Update rule" width="298" height="57" />
 </p>
 
+<p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincrementalc.png"
 alt="Update rule" title="Update rule" width="157" height="35" />
@@ -264,3 +268,10 @@ but instead stop at *h*, called the *horizon*.
 
 + Can be used to learn optimal behavior directly from interaction with the
 environment, with no model of the environment’s dynamics.
++ Can be used with simulation or sample models.
++ It is easy and efficient to focus Monte Carlo methods on a small subset of the
+states. A region of special interest can be accurately evaluated without going
+to the expense of accurately evaluating the rest of the state set.
++ They may be less harmed by violations of the Markov property. This is because
+they do not update their value estimates on the basis of the value estimates of
+successor states. In other words, it is because they do not bootstrap.
