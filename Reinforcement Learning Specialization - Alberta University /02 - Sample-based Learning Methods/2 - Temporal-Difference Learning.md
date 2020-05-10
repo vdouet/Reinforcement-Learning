@@ -44,3 +44,20 @@ called the *TD error*:
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tderror.png"
 alt="Update rule" title="Update rule" width="234" height="34" />
 </p>
+
+On the next picture an example of the update difference between Monte Carlo and
+TD:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tdmcex.png"
+alt="Update rule" title="Update rule" width="682" height="330" />
+</p>
+
+For the MC methods the change in prediction (red arrow) is updated offline, at
+the end of the episode (arrive home) because only at this point you know the 
+actual return. For the TD methods the change in prediction is done immediately
+at the next step, each error is proportional to the change over time of the 
+prediction, that is, to the *temporal differences* in predictions.
+
+## Advantages of TD Prediction Methods
