@@ -232,3 +232,35 @@ because they are much easier to extend to approximations.
 
 ## Incremental Implementation
 
+Monte Carlo prediction methods can be implemented incrementally, on an episode-
+by-episode basis, using incremental updates. Using those methods, we previously
+average rewards, wheras in Monte Carlo methods we average returns. The same
+methods can be use for *on-policy* Monte Carlo methods. For *off-policy* Monte
+Carlo methods using weighted importance sampling we have to form a weighted
+average of the returns, and a slightly different incremental algorithm is
+required.
+
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincremental.png"
+alt="Update rule" title="Update rule" width="298" height="57" />
+</p>
+
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincrementalc.png"
+alt="Update rule" title="Update rule" width="157" height="35" />
+</p>
+
+## Discounting-aware Importance Sampling
+
+Previous off-policy methods are using undiscounted rewards. For discounted
+rewards, we can consider gamma as a *degree* of partial termination. We need
+only to compute the non-terminated *Gt* (*flat partial returns*) and *V(s)* and
+not the unnecessary ones that do not change the expected update and add
+enormously to its variance. “*flat*” denotes the absence of discounting, and
+“*partial*” denotes that these returns do not extend all the way to termination
+but instead stop at *h*, called the *horizon*.
+
+## Monte Carlo methods advantages
+
++ Can be used to learn optimal behavior directly from interaction with the
+environment, with no model of the environment’s dynamics.
