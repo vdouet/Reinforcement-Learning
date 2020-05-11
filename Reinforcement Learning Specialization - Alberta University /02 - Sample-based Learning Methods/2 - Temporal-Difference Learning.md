@@ -8,6 +8,11 @@ from raw experience without a model of the environment’s dynamics and update
 estimates based in part on other learned estimates (boostrap). TD, DP and Monte
 Carlo methods can be combined in different ways.
 
+**Batch Updating**: For a finite amount of experience a common approach with 
+incremental learning methods is to present the experience repeatedly until the
+method converges upon an answer. Updates are made only after processing each 
+complete batch of training data.
+
 ## TD Prediction
 
 Both TD and Monte Carlo methods use experience to solve the prediction problem.
@@ -61,3 +66,32 @@ at the next step, each error is proportional to the change over time of the
 prediction, that is, to the *temporal differences* in predictions.
 
 ## Advantages of TD Prediction Methods
+
++ TD methods do not require a model of the environment, of its reward and 
+next-state probability distributions.
++ They are naturally implemented in an online, fully incremental fashion.
++ Can be applied to continuous tasks.
++ In practice, TD methods have usually been found to converge faster than 
+constant-α MC methods on stochastic tasks.
+
+## Optimality of TD(0)
+
+Batch Monte Carlo methods always find the estimates that minimize mean-squared 
+error on the training set, whereas batch TD(0) always finds the estimates that 
+would be exactly correct for the maximum-likelihood model of the Markov
+process. The *maximum-likelihood estimate* of a parameter is the parameter 
+value whose probability of generating the data is greatest for example, a model
+of the Markov process. Given this model, we can compute the estimate of the 
+value function that would be exactly correct if the model were exactly correct.
+This is called the *certainty-equivalence estimate* because it is equivalent 
+to assuming that the estimate of the underlying process was known with 
+certainty rather than being approximated. In general, batch TD(0) converges to 
+the certainty-equivalence estimate.  
+In batch form, TD(0) is faster than Monte Carlo methods because it computes the
+true certainty-equivalence estimate. The relationship to the 
+certainty-equivalence estimate may also explain in part the speed advantage of
+nonbatch TD(0). Although the nonbatch methods do not achieve either the 
+certainty-equivalence or the minimum squared-error estimates, they can be 
+understood as moving roughly in these directions. Nonbatch TD(0) may be faster 
+than constant-α MC because it is moving toward a better estimate, even though 
+it is not getting all the way there. 
