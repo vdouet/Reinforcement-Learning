@@ -1,4 +1,5 @@
 # Original code from "Reinforcement Learning in Motion" by Phil Tabor.
+# Modified for Expected-Sarsa algorithm
 
 import numpy as np
 import matplotlib.pyplot as plt
