@@ -185,9 +185,10 @@ the two estimates reversed to yield a second unbiased estimate
 *Q1(argmaxa Q2(a))*.  
 Although we learn two estimates, only one estimate is updated on each play; 
 double learning doubles the memory requirements, but does not increase the 
-amount of computation per step. The double learning algorithm analogous to 
-Q-learning, called Double Q-learning, divides the time steps in two. For a
-probability *p1* the update is:
+amount of computation per step. 
+
+The double learning algorithm analogous to Q-learning, called Double Q-learning
+, divides the time steps in two. For a,probability *p1* the update is:
 
 <p align="center">
 <img
@@ -195,5 +196,24 @@ src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%
 alt="Update rule" title="Update rule" width=575" height="37" />
 </p>
 
-For 1-*p1* then the same update is done with *Q1* and *Q2* switched, so that 
-*Q2* is updated.
+For 1-*p1* then the same update is done with *Q1* and *Q2* switched, so that
+*Q2* is updated. The behavior policy can use both action-value estimates. For 
+example, an ε-greedy policy for Double Q-learning could be based on the average
+(or sum) of the two action-value estimates. There is also double version of
+Sarsa and Expected Sarsa.
+
+## Games, Afterstates, and Other Special Cases
+
+For some case it might be useful to evaluate states *after* the agent has made
+its move. These are called *afterstates*, and value functions over these, 
+*afterstate value functions*. Afterstates are useful when we have knowledge of 
+an initial part of the environment’s dynamics but not necessarily of the full 
+dynamics. For example, in games we typically know the immediate effects of our 
+moves. We know for each possible chess move what the resulting position will 
+be, but not how our opponent will reply. Afterstate value functions are a 
+natural way to take advantage of this kind of knowledge and thereby produce a 
+more efficient learning method. Afterstates arise in many tasks, not just 
+games.
+
+However, it is impossible to describe all the possible kinds of specialized 
+problems and corresponding specialized learning algorithms.
