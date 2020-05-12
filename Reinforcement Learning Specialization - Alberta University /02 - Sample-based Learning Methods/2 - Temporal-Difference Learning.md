@@ -144,3 +144,23 @@ conservative - if there is risk of a large negative reward close to the optimal
 path, Q-learning will tend to trigger that reward whilst exploring, whilst 
 SARSA will tend to avoid a dangerous optimal path and only slowly learn to use
 it when the exploration parameters are reduced (see Cliff Walking p.132).
+
+## Expected Sarsa
+
+Expected Sarsa is just like Q-learning except that instead of the maximum over 
+next state–action pairs it uses the expected value, taking into account how 
+likely each action is under the current policy but otherwise follows the schema
+of Q-learning.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/expectedsarsa.png"
+alt="Update rule" title="Update rule" width=539" height="80" />
+</p>
+
+Expected Sarsa is more complex computationally than Sarsa but eliminates the
+variance due to the random selection of *At+1*. Given the same amount of
+experience it generally perform slightly better than Sarsa. Expected Sarsa 
+subsumes and generalizes Q-learning while reliably improving over Sarsa. Except
+for the small additional computational cost, Expected Sarsa may completely 
+dominate both of the other more-well-known TD control algorithms.

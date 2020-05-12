@@ -21,14 +21,15 @@ def action_argmax(Q, state):
     """Return the action with the maximum value for the current state.
 
     Arguments:
-        Q {array} -- state-action function array
+        Q {dict} -- state-action function array
         state {array} -- Current state
 
     Returns:
         int -- Action to take
     """
-    values = np.array([Q[state, a] for a in range(2)])
-    action = np.argmax(values)
+    values = np.array([Q[state, a] for a in range(N_ACTIONS)])
+    # Random tie breaking
+    action = np.random.choice(np.where(values == values.max())[0])
     return action
 
 
@@ -78,6 +79,7 @@ if __name__ == '__main__':
     ALPHA = 0.1
     GAMMA = 1.0
     EPS = 1.0
+    N_ACTIONS = env.action_space.n
 
     # Construct the state space
     states = []
@@ -90,15 +92,15 @@ if __name__ == '__main__':
     # initialise Q(s,a) to 0
     Q = {}
     for state in states:
-        for action in range(2):
+        for action in range(N_ACTIONS):
             Q[state, action] = 0
 
-    number_games = 25000
+    number_games = 15000
     total_rewards = np.zeros(number_games)
 
     for i in range(number_games):
 
-        if i % 1000 == 0:
+        if i % 5000 == 0:
             print('Starting game', i)
 
         observation = env.reset()

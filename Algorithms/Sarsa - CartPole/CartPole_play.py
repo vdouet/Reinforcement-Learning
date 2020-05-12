@@ -6,13 +6,13 @@ def action_argmax(Q, state):
     """Return the action with the maximum value for the current state.
 
     Arguments:
-        Q {array} -- state-action function array
+        Q {dict} -- state-action function array
         state {array} -- Current state
 
     Returns:
         int -- Action to take
     """
-    values = np.array([Q[state, a] for a in range(2)])
+    values = np.array([Q[state, a] for a in range(N_ACTIONS)])
     action = np.argmax(values)
     return action
 
@@ -45,6 +45,9 @@ def get_state(observation):
 if __name__ == '__main__':
 
     env = gym.make('CartPole-v0')
+    N_ACTIONS = env.action_space.n
+
+    # Load the trained Q function
     Q = np.load('Q_values.npy', allow_pickle='TRUE').item()
 
     # Play a game of Cart Pole

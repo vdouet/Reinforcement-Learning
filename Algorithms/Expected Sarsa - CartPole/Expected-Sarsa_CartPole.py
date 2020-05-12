@@ -67,10 +67,29 @@ def plot_running_avg(total_rewards):
     n = len(total_rewards)
     running_avg = np.empty(n)
     for t in range(n):
-        running_avg[t] = np.mean(total_rewards[max(0, t-100):(t+1)])
+        running_avg[t] = np.mean(total_rewards[max(0, t - 100):(t + 1)])
     plt.plot(running_avg)
     plt.title("Running Average")
     plt.show()
+
+
+def expected_q(state_, Q, pi):
+    """Gives the sum of pi(a|s')*Q(s',a) for each a.
+
+    Arguments:
+        state_ {array} -- State st+1
+        Q {dict} -- Dictionnary of Q(s,a)
+        pi {dict} -- Policy of pi(a|s)
+
+    Returns:
+        float -- Calculated sum
+    """
+    expected_q = 0
+
+    for a in range(N_ACTIONS):
+        expected_q += pi[state_, a] * Q[state_, a]
+
+    return expected_q
 
 
 if __name__ == '__main__':
@@ -89,11 +108,13 @@ if __name__ == '__main__':
                 for l in range(len(pole_theta_vel_space) + 1):
                     states.append((i, j, k, l))
 
-    # initialise Q(s,a) to 0
+    # initialise Q(s,a) to 0 and pi as equiprobable random policy
     Q = {}
+    pi = {}
     for state in states:
         for action in range(N_ACTIONS):
             Q[state, action] = 0
+            pi[state, action] = 1 / (N_ACTIONS)
 
     number_games = 15000
     total_rewards = np.zeros(number_games)
@@ -106,27 +127,33 @@ if __name__ == '__main__':
         observation = env.reset()
         state = get_state(observation)
 
-        # e-greedy action selection
-        rand = np.random.random()
-        random_action = env.action_space.sample()
-        action = action_argmax(Q, state) if rand < (1 - EPS) else random_action
-
         done = False
         ep_rewards = 0
 
         while not done:
-            observation_, reward, done, info = env.step(action)
-            ep_rewards += reward
-            state_ = get_state(observation_)
-
             # e-greedy action selection
             rand = np.random.random()
             random_action = env.action_space.sample()
-            action_ = action_argmax(
-                Q, state_) if rand < (1 - EPS) else random_action
-            Q[state, action] = Q[state, action] + ALPHA * (
-                reward + GAMMA * Q[state_, action_] - Q[state, action])
-            state, action = state_, action_
+            action = action_argmax(
+                pi, state) if rand < (1 - EPS) else random_action
+
+            observation_, reward, done, info = env.step(action)
+            state_ = get_state(observation_)
+
+            # Update Q
+            Q[state,  action] = Q[state, action] + ALPHA * \
+                (reward + GAMMA * expected_q(state_, Q, pi) - Q[state, action])
+
+            # Update policy
+            max_action = action_argmax(Q, state)
+            for a in range(N_ACTIONS):
+                if a == max_action:
+                    pi[state, a] = 1 - EPS + (EPS / N_ACTIONS)
+                else:
+                    pi[state, a] = EPS / N_ACTIONS
+
+            ep_rewards += reward
+            state = state_
 
         # At the end of the episode decrease epsilon by a small amount such as
         # it converges to a greedy strategy halfway through the series of ep.
