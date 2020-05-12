@@ -6,7 +6,7 @@
 Carlo ideas and dynamic programming (DP) ideas. TD methods can learn directly 
 from raw experience without a model of the environment’s dynamics and update 
 estimates based in part on other learned estimates (boostrap). TD, DP and Monte
-Carlo methods can be combined in different ways.
+Carlo methods can be combined in different ways. Model free.
 
 **Batch Updating**: For a finite amount of experience a common approach with 
 incremental learning methods is to present the experience repeatedly until the
@@ -95,3 +95,23 @@ certainty-equivalence or the minimum squared-error estimates, they can be
 understood as moving roughly in these directions. Nonbatch TD(0) may be faster 
 than constant-α MC because it is moving toward a better estimate, even though 
 it is not getting all the way there. 
+
+## Sarsa: On-policy TD Control
+
+We must estimate *qπ(s,a)* for the current behavior policy *π* and for all 
+states *s* and actions *a*. We consider transitions from state–action pair to 
+state–action pair, and learn the values of state–action pairs.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/sarsaq.png"
+alt="Update rule" title="Update rule" width=469" height="38" />
+</p>
+
+This update is done after every transition from a nonterminal state *St*. 
+If *St+1* is terminal, then *Q(St+1,At+1)* is defined as zero. The name Sarsa
+is given by the quintuple of events, (*St, At, Rt+1, St+1, At+1*), that make up
+a transition from one state–action pair to the next. Sarsa converges with 
+probability 1 to an optimal policy and action-value function as long as all 
+state–action pairs are visited an infinite number of times and the policy 
+converges in the limit to the greedy policy.
