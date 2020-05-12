@@ -163,4 +163,37 @@ variance due to the random selection of *At+1*. Given the same amount of
 experience it generally perform slightly better than Sarsa. Expected Sarsa 
 subsumes and generalizes Q-learning while reliably improving over Sarsa. Except
 for the small additional computational cost, Expected Sarsa may completely 
-dominate both of the other more-well-known TD control algorithms.
+dominate both of the other more-well-known TD control algorithms. Expected
+Sarsa can be used as on-policy or as an off-policy.
+
+## Maximization Bias and Double Learning
+
+In the previous algorithms a maximum over estimated values is used implicitly 
+as an estimate of the maximum value, which can lead to a significant positive 
+bias. We call this *maximization bias*. Maximization bias can make an algorithm
+like Q-learning favor a non-optimal action over an optimal one because of the
+maximum over estimated values (see Maximization Bias Example p.134).
+
+One way to view the problem is that it is due to using the same samples both to
+determine the maximizing action and to estimate its value. With *double
+learning* we can use two independant estimates *Q1(a)* and *Q2(a)*, each an 
+estimate of the true value q(a). We can use *Q1* to determine the maximizing
+action *A\** = argmaxa *Q1(a)*, and *Q2* to provide the estimate of its value,
+*Q2(A\*) = Q2(argmaxa Q1(a))*. This estimate will then be unbiased in the sense
+that E\[*Q2(A\*)*\] = *q(A\*)*. We can also repeat the process with the role of
+the two estimates reversed to yield a second unbiased estimate 
+*Q1(argmaxa Q2(a))*.  
+Although we learn two estimates, only one estimate is updated on each play; 
+double learning doubles the memory requirements, but does not increase the 
+amount of computation per step. The double learning algorithm analogous to 
+Q-learning, called Double Q-learning, divides the time steps in two. For a
+probability *p1* the update is:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/doubleQlearning.png"
+alt="Update rule" title="Update rule" width=575" height="37" />
+</p>
+
+For 1-*p1* then the same update is done with *Q1* and *Q2* switched, so that 
+*Q2* is updated.
