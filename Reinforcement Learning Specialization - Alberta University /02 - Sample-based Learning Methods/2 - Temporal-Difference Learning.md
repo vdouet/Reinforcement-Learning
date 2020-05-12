@@ -117,3 +117,30 @@ state–action pairs are visited an infinite number of times and the policy
 converges in the limit to the greedy policy.
 
 ## Q-learning: Off-policy TD Control
+
+One of the early breakthroughs in reinforcement learning was the development of
+an off-policy TD control algorithm known as Q-learning.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qlearning.png"
+alt="Update rule" title="Update rule" width=469" height="39" />
+</p>
+
+The learned action-value function, *Q*, directly approximates *q\**, the 
+optimal action-value function, independent of the policy being followed. The 
+policy still determines which state–action pairs are visited and updated but 
+all that is required for correct convergence is that all pairs continue to be 
+updated.
+
+Q-Learning algorithm directly finds the optimal action-value function (*q\**) 
+without any dependency on the policy being followed. The policy only helps to 
+select the next state-action pair from a current state. Hence, Q-Learning is an
+off-policy method.
+
+SARSA will approach convergence allowing for possible penalties from 
+exploratory moves, whilst Q-learning will ignore them. That makes SARSA more 
+conservative - if there is risk of a large negative reward close to the optimal
+path, Q-learning will tend to trigger that reward whilst exploring, whilst 
+SARSA will tend to avoid a dangerous optimal path and only slowly learn to use
+it when the exploration parameters are reduced (see Cliff Walking p.132).

@@ -66,7 +66,7 @@ def plot_running_avg(total_rewards):
     n = len(total_rewards)
     running_avg = np.empty(n)
     for t in range(n):
-        running_avg[t] = np.mean(total_rewards[max(0, t-100):(t+1)])
+        running_avg[t] = np.mean(total_rewards[max(0, t - 100):(t + 1)])
     plt.plot(running_avg)
     plt.title("Running Average")
     plt.show()
@@ -98,33 +98,30 @@ if __name__ == '__main__':
 
     for i in range(number_games):
 
-        if i % 5000 == 0:
+        if i % 1000 == 0:
             print('Starting game', i)
 
         observation = env.reset()
         state = get_state(observation)
 
-        # e-greedy action selection
-        rand = np.random.random()
-        random_action = env.action_space.sample()
-        action = action_argmax(Q, state) if rand < (1 - EPS) else random_action
-
         done = False
         ep_rewards = 0
 
         while not done:
-            observation_, reward, done, info = env.step(action)
-            ep_rewards += reward
-            state_ = get_state(observation_)
 
             # e-greedy action selection
             rand = np.random.random()
             random_action = env.action_space.sample()
-            action_ = action_argmax(
-                Q, state_) if rand < (1 - EPS) else random_action
+            action = action_argmax(
+                Q, state) if rand < (1 - EPS) else random_action
+
+            observation_, reward, done, info = env.step(action)
+            ep_rewards += reward
+            state_ = get_state(observation_)
+            action_ = action_argmax(Q, state_)
             Q[state, action] = Q[state, action] + ALPHA * (
                 reward + GAMMA * Q[state_, action_] - Q[state, action])
-            state, action = state_, action_
+            state = state_
 
         # At the end of the episode decrease epsilon by a small amount such as
         # it converges to a greedy strategy halfway through the series of ep.
