@@ -115,3 +115,5 @@ a transition from one state–action pair to the next. Sarsa converges with
 probability 1 to an optimal policy and action-value function as long as all 
 state–action pairs are visited an infinite number of times and the policy 
 converges in the limit to the greedy policy.
+
+## Q-learning: Off-policy TD Control
