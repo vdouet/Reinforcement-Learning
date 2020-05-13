@@ -1,4 +1,4 @@
-# Temporal-Difference Learning
+# Temporal-Difference Learning (one-step TD methods)
 
 ## Definitions
 
