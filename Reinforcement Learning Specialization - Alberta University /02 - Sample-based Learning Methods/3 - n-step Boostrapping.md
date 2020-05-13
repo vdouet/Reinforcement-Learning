@@ -68,7 +68,6 @@ alt="Update rule" title="Update rule" width="449" height="33" />
 
 While the values of all other states remain unchanged: *Qt+n(s, a)* = 
 *Qt+n-1(s, a)*, for all *s*, *a* such that *s* =/= *St* or *a* =/= *At*.
-
 Note, *inf*-step Sarsa is equal to Monte Carlo.
 
 For *n*-step Expected Sarsa, the *n*-step return is redifined as:
@@ -79,7 +78,7 @@ src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%
 alt="Update rule" title="Update rule" width="379" height="30" />
 </p>
 
-V¯ is the *expected approximate value* of state *s*, using the estimated 
+*¯V* is the *expected approximate value* of state *s*, using the estimated 
 action value a time *t*, under the target policy.
 
 <p align="center">
