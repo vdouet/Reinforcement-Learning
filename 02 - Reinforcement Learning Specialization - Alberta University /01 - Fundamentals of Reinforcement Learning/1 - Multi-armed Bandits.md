@@ -42,10 +42,10 @@ It is the average of rewards.
 **Incremental Update Rule**:
 `NewEstimate <- OldEstimate + StepSize[Target - OldEstimate]`  
 Sample average case:  
-<img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/IncrementalUpdateRule.png" alt="Update rule"
+<img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/IncrementalUpdateRule.png" alt="Update rule"
 	title="Update rule" width="281" height="64" />  
 Nonstationary case:  
-<img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nonstationnaryRule.png" alt="Update rule"
+<img src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nonstationnaryRule.png" alt="Update rule"
 	title="Update rule" width="303" height="76" />  
 
 **Policy**: A mapping from situations to the actions that are best in those
