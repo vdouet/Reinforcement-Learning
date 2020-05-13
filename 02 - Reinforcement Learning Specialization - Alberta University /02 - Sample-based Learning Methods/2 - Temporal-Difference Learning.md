@@ -21,7 +21,7 @@ increment to V(St):
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vtMC.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vtMC.png"
 alt="Update rule" title="Update rule" width="245" height="41" />
 </p>
 
@@ -29,7 +29,7 @@ TD methods need to wait only until the next time step:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vtTD0.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vtTD0.png"
 alt="Update rule" title="Update rule" width="350" height="37" />
 </p>
 
@@ -46,7 +46,7 @@ called the *TD error*:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tderror.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tderror.png"
 alt="Update rule" title="Update rule" width="234" height="34" />
 </p>
 
@@ -55,7 +55,7 @@ TD:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tdmcex.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tdmcex.png"
 alt="Update rule" title="Update rule" width="682" height="330" />
 </p>
 
@@ -104,7 +104,7 @@ state–action pair, and learn the values of state–action pairs.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/sarsaq.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/sarsaq.png"
 alt="Update rule" title="Update rule" width=469" height="38" />
 </p>
 
@@ -123,7 +123,7 @@ an off-policy TD control algorithm known as Q-learning.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qlearning.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qlearning.png"
 alt="Update rule" title="Update rule" width=469" height="39" />
 </p>
 
@@ -154,7 +154,7 @@ of Q-learning.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/expectedsarsa.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/expectedsarsa.png"
 alt="Update rule" title="Update rule" width=539" height="80" />
 </p>
 
@@ -192,7 +192,7 @@ The double learning algorithm analogous to Q-learning, called Double Q-learning
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/doubleQlearning.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/doubleQlearning.png"
 alt="Update rule" title="Update rule" width=575" height="37" />
 </p>
 

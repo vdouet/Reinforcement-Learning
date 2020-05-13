@@ -18,7 +18,7 @@ return*:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/2stepreturn.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/2stepreturn.png"
 alt="Update rule" title="Update rule" width="294" height="34" />
 </p>
 
@@ -26,7 +26,7 @@ Similarly, the target for an arbitrary *n*-step update is the *n-step return*:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepreturn.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepreturn.png"
 alt="Update rule" title="Update rule" width="442" height="34" />
 </p>
 
@@ -36,7 +36,7 @@ state-value learning algorithm for using *n*-step returns is:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vnstep.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vnstep.png"
 alt="Update rule" title="Update rule" width="481" height="31" />
 </p>
 
@@ -54,7 +54,7 @@ estimated action values:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsarsaupdate.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsarsaupdate.png"
 alt="Update rule" title="Update rule" width="623" height="30" />
 </p>
 
@@ -62,7 +62,7 @@ The natural algorithm is then:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepsarsaq.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepsarsaq.png"
 alt="Update rule" title="Update rule" width="449" height="33" />
 </p>
 
@@ -74,7 +74,7 @@ For *n*-step Expected Sarsa, the *n*-step return is redifined as:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepexpectedsarsaq.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepexpectedsarsaq.png"
 alt="Update rule" title="Update rule" width="379" height="30" />
 </p>
 
@@ -83,7 +83,7 @@ action value a time *t*, under the target policy.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vnexpectedsarsa.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vnexpectedsarsa.png"
 alt="Update rule" title="Update rule" width="189" height="42" />
 </p>
 
@@ -97,12 +97,12 @@ only over the *n* actions. For example, to make a simple off-policy version of
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicynsteptd.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicynsteptd.png"
 alt="Update rule" title="Update rule" width="421" height="27" />
 </p>
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicynsteptd2.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicynsteptd2.png"
 alt="Update rule" title="Update rule" width="206" height="63" />
 </p>
 
@@ -114,7 +114,7 @@ off-policy form:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepsarsaoffpolicy.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepsarsaoffpolicy.png"
 alt="Update rule" title="Update rule" width="506" height="30" />
 </p>
 
@@ -129,7 +129,7 @@ was previously denoted *t+n*):
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepreturnh.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepreturnh.png"
 alt="Update rule" title="Update rule" width="176" height="24" />
 </p>
 
@@ -138,7 +138,7 @@ definition of the *n*-step return ending at horizon *h*, as:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepperdecision.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepperdecision.png"
 alt="Update rule" title="Update rule" width="340" height="31" />
 </p>
 
@@ -156,7 +156,7 @@ variates as:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyreturncontrolvariates.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyreturncontrolvariates.png"
 alt="Update rule" title="Update rule" width="573" height="70" />
 </p>
 
@@ -177,7 +177,7 @@ The general recursive definition of the tree-backup *n*-step return:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsteptreereturn.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsteptreereturn.png"
 alt="Update rule" title="Update rule" width="556" height="49" />
 </p>
 
@@ -186,7 +186,7 @@ Sarsa:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsteptreeupdate.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsteptreeupdate.png"
 alt="Update rule" title="Update rule" width="451" height="30" />
 </p>
 
@@ -202,7 +202,7 @@ one, which is fully branched with an expected value.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepdiagram.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepdiagram.png"
 alt="Update rule" title="Update rule" width="450" height="332" />
 </p>
 
@@ -222,7 +222,7 @@ state–action pair at time *t*.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Qsigma.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Qsigma.png"
 alt="Update rule" title="Update rule" width="624" height="66" />
 </p>
 

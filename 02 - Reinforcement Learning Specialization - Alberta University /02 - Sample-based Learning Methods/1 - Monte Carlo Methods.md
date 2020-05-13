@@ -177,7 +177,7 @@ importance-sampling ration is given by:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/importancesamplingratio.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/importancesamplingratio.png"
 alt="Update rule" title="Update rule" width="446" height="74" />
 </p>
 
@@ -188,12 +188,12 @@ behavior policy to have the right expected value for the target policy.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Gtb.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Gtb.png"
 alt="Update rule" title="Update rule" width="145" height="22" />
 </p>
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Gtratiopi.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Gtratiopi.png"
 alt="Update rule" title="Update rule" width="214" height="30" />
 </p>
 
@@ -202,7 +202,7 @@ importance sampling* (see p.104 for notation).
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/ordinaryimportancesampling.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/ordinaryimportancesampling.png"
 alt="Update rule" title="Update rule" width="214" height="67" />
 </p>
 
@@ -211,7 +211,7 @@ An important alternative is *weighted importance sampling*, which uses a
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/weightedimportancesampling.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/weightedimportancesampling.png"
 alt="Update rule" title="Update rule" width="205" height="56" />
 </p>
 
@@ -244,13 +244,13 @@ required.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincremental.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincremental.png"
 alt="Update rule" title="Update rule" width="298" height="57" />
 </p>
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincrementalc.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyincrementalc.png"
 alt="Update rule" title="Update rule" width="157" height="35" />
 </p>
 
