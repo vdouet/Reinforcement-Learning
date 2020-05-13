@@ -4,10 +4,13 @@ This repository contains all the notes from the various courses I took on
 Reinforcement Learning. It also contains RL algorithms implementations in
 Python and other project code.
 
-## Courses
+## Book
 
 + Reinforcement Learning: An Introduction Second Edition by Richard S. Sutton and Andrew G. Barto - PDF (on-going)
   + http://incompleteideas.net/book/the-book-2nd.html
+
+## Courses
+
 + Reinforcement Learning Specialization - Alberta University Coursera (on-going)
   + https://www.ualberta.ca/admissions-programs/online-courses/reinforcement-learning/index.html
 + Reinforcement Learning in Motion - Manning (on-going)
