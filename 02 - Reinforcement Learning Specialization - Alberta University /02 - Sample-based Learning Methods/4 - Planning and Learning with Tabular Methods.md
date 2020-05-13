@@ -81,3 +81,95 @@ experience.
 
 ## Dyna: Integrated Planning, Acting, and Learning
 
+Within a planning agent there are at least two roles for real experience:
++ *Model Learning*: can be used to improve the model (make it more accurately 
+match the real environment).
++ *Direct Reinforcement Learning*: can be used to directly improve the value `
+function and policy using RL methods.
+
+The diagram below shows the possible relationship between experience, model,
+values and policy:
+
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/dynarelationship.png"
+alt="Update rule" title="Update rule" width="590" height="289" />
+</p>
+
+Each arrow shows a relationship of influence and presumed improvement.
+Experience can indirectly improve value functions and policies, this is called
+*indirect reinforcement learning* and that is what is involved in planning.
+
+Both direct and indirect methods have advantages and disadvantages:
++ Indirect methods often make fuller use of a limited amount of experience and
+thus achieve a better policy with fewer environmental interactions.
++ Direct methods are much simpler and are not affected by biases in the design
+of the model.
++ Some have argued that indirect methods are always superior to direct ones,
+while others have argued that direct methods are responsible for most human and
+animal learning.
+
+Dyna-Q includes all of the processes shown in the diagram above, planning, 
+acting, model-learning, and direct RL, all occurring continually:
++ The planning method is the random-sample one-step tabular Q-planning method.
++ The direct RL method is one-step tabular Q-learning.
++ The model-learning method is also table-based and assumes the environment is
+deterministic. After each transition *St, At -> Rt+1, St+1* the model records
+in its table entry for *St, At* the prediction that *Rt+1, St+1* will
+deterministically follow.
+
+The overall architecture of Dyna agents, of which the Dyna-Q algorithm is one 
+example, is shown below:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/dynaarchitecture.png"
+alt="Update rule" title="Update rule" width="446" height="321" />
+</p>
+
+In Dyna-Q the policy is built at the same time as the agent is learning from
+the environment, thus it converge faster. See Dyna Maze p. 164 for example.
+
+## When the Model Is Wrong
+
+Models may be incorrect because the environment is stochastic and only a 
+limited number of samples have been observed, or because the model was learned 
+using function approximation that has generalized imperfectly, or simply 
+because the environment has changed and its new behavior has not yet been 
+observed. When the model is incorrect, the planning process is likely to 
+compute a suboptimal policy.
+Sometimes, the suboptimal policy computed by the planning quickly leads to the
+discovery and correction of the modeling error. This tends to happen when the 
+model is optimistic in the sense of predicting greater reward or better state 
+transitions than are actually possible. The planned policy attempts to exploit 
+these opportunities and in doing so discovers that they do not exist. 
+Greater diffculties arise when the environment changes to become better than it
+was before, and yet the formerly correct policy does not reveal the 
+improvement. In these cases the modeling error may not be detected for a long 
+time, if ever.
+
+A Dyna-Q+ agent can be able to overcome this last problem. This agent keeps 
+track for each state–action pair of how many time steps have elapsed since the
+pair was last tried in a real interaction with the environment. The more time 
+that has elapsed, the greater (we might presume) the chance that the dynamics 
+of this pair has changed and that the model of it is incorrect. To encourage 
+behavior that tests long-untried actions, a special “bonus reward” is given on 
+simulated experiences involving these actions.
+
+## Prioritized Sweeping
+
+In the previous Dyna agents, simulated transitions are started in state–action 
+pairs selected uniformly at random from all previously experienced pairs. But 
+a uniform selection is usually not the best; planning can be much more e cient 
+if simulated transitions and updates are focused on particular state–action 
+pairs. It is natural to prioritize the updates according to a measure of their 
+urgency, and perform them in order of priority. This is the idea behind 
+*prioritized sweeping.*  
+Prioritized sweeping is just one way of distributing computations to improve 
+planning efficiency, and probably not the best way. One of prioritized 
+sweeping’s limitations is that it uses expected updates, which in stochastic 
+environments may waste lots of computation on low-probability transitions
+
+## Expected vs. Sample Updates
+
