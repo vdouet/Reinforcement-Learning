@@ -118,3 +118,60 @@ src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%
 alt="Update rule" title="Update rule" width="506" height="30" />
 </p>
 
+## Per-decision Methods with Control Variates
+
+The multi-step off-policy methods presented in the previous section are simple
+and conceptually clear, but are probably not the most efficient. A more 
+sophisticated approach would use per-decision importance sampling ideas seen
+previously.  
+For the *n* steps ending at horizon *h*, the *n*-step return can be written (h
+was previously denoted *t+n*):
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepreturnh.png"
+alt="Update rule" title="Update rule" width="176" height="24" />
+</p>
+
+In this more sophisticated approach, we can use an alternate, off-policy 
+definition of the *n*-step return ending at horizon *h*, as:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepperdecision.png"
+alt="Update rule" title="Update rule" width="340" height="31" />
+</p>
+
+In this approach, if *pt* is zero, then instead of the target being zero and 
+causing the estimate to shrink, the target is the same as the estimate and 
+causes no change. The importance sampling ratio being zero means we should 
+ignore the sample, so leaving the estimate unchanged seems appropriate. The
+additionnal term on the right side is called a *control variate*.  
+For a conventional *n*-step method, the learning rule to use in conjunction
+with the previous *n*-step return is the *n*-step TD update, which has no 
+explicit importance sampling ratios other than those embedded in the return.
+
+For action-value, the *n*-step *off-policy* return can be written with control
+variates as:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicyreturncontrolvariates.png"
+alt="Update rule" title="Update rule" width="573" height="70" />
+</p>
+
+## Off-policy Learning Without Importance Sampling: The n-step Tree Backup Algorithm
+
+The *n-step tree backup algorithm* estimate the value of the node at the top of
+the diagram toward a target combining the rewards along the way (appropriately 
+discounted) and the estimated values of the nodes at the bottom, as previously
+done. But it also add the estimated values of the action not selected at all 
+level. It is an update from the entire tree of estimated action values. More 
+precisely, the update is from the estimated action values of the leaf nodes of 
+the tree. The action nodes in the interior, corresponding to the actual actions
+taken, do not participate. Each leaf node contributes to the target with a 
+weight proportional to its probability of occurring under the target policy
+*π*.
+
+## A Unifying Algorithm: n-step Q(σ)
+
