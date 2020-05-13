@@ -226,4 +226,4 @@ src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%
 alt="Update rule" title="Update rule" width="624" height="66" />
 </p>
 
-Then we use the general (off↵-policy) update for *n*-step Sarsa.
+Then we use the general (off-policy) update for *n*-step Sarsa.
