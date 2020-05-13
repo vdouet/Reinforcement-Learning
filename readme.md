@@ -1,7 +1,7 @@
 # Reinforcement Learning repository
 
 This repository contains all the notes from the various courses I took on
-Reinforcement Learning. It also contains the algorithm implementations in
+Reinforcement Learning. It also contains RL algorithm implementations in
 Python and other project code.
 
 ## Courses
