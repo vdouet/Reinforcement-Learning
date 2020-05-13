@@ -41,7 +41,7 @@ for *vπ* as an update rule:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vpiupdatefunction.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vpiupdatefunction.png"
 alt="Update rule" title="Update rule" width="374" height="83" />
 </p>
 
@@ -67,7 +67,7 @@ selecting *a* in *s* and thereafter following the existing policy, π.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement1.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement1.png"
 alt="Update rule" title="Update rule" width="359" height="75" />
 </p>
 
@@ -80,7 +80,7 @@ policy would in fact be a better one overall. This is a special case of the
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovmenttheorem.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovmenttheorem.png"
 alt="Update rule" title="Update rule" width="158" height="34" />
 </p>
 
@@ -90,7 +90,7 @@ actions, selecting at each state the action that appears best according to
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement2.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement2.png"
 alt="Update rule" title="Update rule" width="405" height="122" />
 </p>
 
@@ -107,7 +107,7 @@ optimality equation).
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement3.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyimprovement3.png"
 alt="Update rule" title="Update rule" width="387" height="85" />
 </p>
 
@@ -122,7 +122,7 @@ Once a policy, *π*, has been improved using *vπ* to yield a better policy,
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyiteration.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/policyiteration.png"
 alt="Update rule" title="Update rule" width="410" height="46" />
 </p>
 
@@ -152,7 +152,7 @@ policy improvement and truncated policy evaluation steps:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/valueiteration.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/valueiteration.png"
 alt="Update rule" title="Update rule" width="402" height="81" />
 </p>
 
@@ -212,7 +212,7 @@ driven toward the value function for the policy, as suggested by the diagram:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/GPIdiagram.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/GPIdiagram.png"
 alt="Update rule" title="Update rule" width="154" height="244" />
 </p>
 

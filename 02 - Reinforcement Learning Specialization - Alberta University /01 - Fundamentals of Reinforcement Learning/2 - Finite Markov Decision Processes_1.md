@@ -44,7 +44,7 @@ and goes continually without limit.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/agentenvironmentinterface.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/agentenvironmentinterface.png"
 alt="Update rule" title="Update rule" width="377" height="136" />
 </p>
 
@@ -67,7 +67,7 @@ probability distribution dependent only on the preceding state and action.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/MDPdynamics.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/MDPdynamics.png"
 alt="Update rule" title="Update rule" width="341" height="28" />
 </p>
 
@@ -77,7 +77,7 @@ specifies a probability distribution for each choice of *s* and *a*.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/pfunction.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/pfunction.png"
 alt="Update rule" title="Update rule" width="313" height="41" />
 </p>
 
@@ -191,7 +191,7 @@ Due to the infinite nature of continuous tasks we want to maximize the expected
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/discountedreturn.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/discountedreturn.png"
 alt="Update rule" title="Update rule" width="360" height="45" />
 </p>
 
@@ -206,6 +206,6 @@ important for the theory and algorithms of reinforcement learning:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/discountedreturn2.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/discountedreturn2.png"
 alt="Update rule" title="Update rule" width="330" height="74" />
 </p>

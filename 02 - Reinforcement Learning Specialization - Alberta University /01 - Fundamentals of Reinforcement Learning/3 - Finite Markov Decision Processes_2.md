@@ -25,7 +25,7 @@ expected return when starting in *s* and following *π* thereafter.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/valuefunction1.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/valuefunction1.png"
 alt="Update rule" title="Update rule" width="510" height="62" />
 </p>
 
@@ -38,7 +38,7 @@ thereafter following policy *π*
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/actionvaluefunction.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/actionvaluefunction.png"
 alt="Update rule" title="Update rule" width="546" height="68" />
 </p>
 
@@ -60,7 +60,7 @@ between the value of *s* and the value of its possible successor states:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/valuefunctionrecursive.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/valuefunctionrecursive.png"
 alt="Update rule" title="Update rule" width="472" height="150" />
 </p>
 
@@ -79,7 +79,7 @@ solution to its Bellman equation.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagram.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagram.png"
 alt="Update rule" title="Update rule" width="158" height="122" />
 </p>
 
@@ -94,7 +94,7 @@ and on how likely each action is to be taken under the current policy:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramv.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramv.png"
 alt="Update rule" title="Update rule" width="424" height="88" />
 </p>
 
@@ -103,7 +103,7 @@ expected sum of the remaining rewards.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramq.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramq.png"
 alt="Update rule" title="Update rule" width="338" height="98" />
 </p>
 
@@ -120,12 +120,12 @@ function* denoted *v\** and *q\**
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vstar.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/vstar.png"
 alt="Update rule" title="Update rule" width="134" height="31" />
 </p>
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qstar.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qstar.png"
 alt="Update rule" title="Update rule" width="163" height="34" />
 </p>
 
@@ -134,7 +134,7 @@ for taking action *a* in state *s* and thereafter following an optimal policy.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qstarvstar.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/qstarvstar.png"
 alt="Update rule" title="Update rule" width="328" height="31" />
 </p>
 
@@ -146,12 +146,12 @@ reference to any specific policy. This is the *Bellman optimality equation*
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/bellmanv.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/bellmanv.png"
 alt="Update rule" title="Update rule" width="354" height="178" />
 </p>
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/bellmanq.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/bellmanq.png"
 alt="Update rule" title="Update rule" width="438" height="95" />
 </p>
 
@@ -162,7 +162,7 @@ policy.
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramqvstar.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/backupdiagramqvstar.png"
 alt="Update rule" title="Update rule" width="398" height="134" />
 </p>
 
