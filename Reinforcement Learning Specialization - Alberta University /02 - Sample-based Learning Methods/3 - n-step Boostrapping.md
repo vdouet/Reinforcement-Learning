@@ -173,5 +173,57 @@ taken, do not participate. Each leaf node contributes to the target with a
 weight proportional to its probability of occurring under the target policy
 *π*.
 
+The general recursive definition of the tree-backup *n*-step return:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsteptreereturn.png"
+alt="Update rule" title="Update rule" width="556" height="49" />
+</p>
+
+This target is then used with the usual action-value update rule from *n*-step
+Sarsa:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nsteptreeupdate.png"
+alt="Update rule" title="Update rule" width="451" height="30" />
+</p>
+
+While the values of all other state–action pairs remain unchanged: *Qt+n(s, a)*
+= *Qt+n-1(s, a)*, for all *s*, *a* such that *s =/= St* or *a =/= At*.
+
 ## A Unifying Algorithm: n-step Q(σ)
 
+*n*-step Sarsa has all sample transitions, the tree-backup algorithm has all 
+state-to-action transitions fully branched without sampling, and *n*-step 
+Expected Sarsa has all sample transitions except for the last state-to-action 
+one, which is fully branched with an expected value. 
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepdiagram.png"
+alt="Update rule" title="Update rule" width="450" height="332" />
+</p>
+
+*ρ* indicates half transitions on which importance sampling is required in the
+off-policy case. *σ* is if we choose to sample (*σt* = 1) or not (*σt* = 0)
+
+To unifiy all of those algorithm, we can decide on a step-by-step basis whether 
+to take the action as a sample, as in Sarsa, or consider the expectation over 
+all actions instead, as in the tree-backup update. If we chose always to 
+sample, we would obtain Sarsa, whereas if we chose never to sample, we would 
+get the tree-backup algorithm. Expected Sarsa would be the case where we chose 
+to sample for all steps except for the last one.
+
+We can consider a continuous variation between sampling and expectation. The 
+random variable *σt* might be set as a function of the state, action, or 
+state–action pair at time *t*.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/Qsigma.png"
+alt="Update rule" title="Update rule" width="624" height="66" />
+</p>
+
+Then we use the general (off↵-policy) update for *n*-step Sarsa.
