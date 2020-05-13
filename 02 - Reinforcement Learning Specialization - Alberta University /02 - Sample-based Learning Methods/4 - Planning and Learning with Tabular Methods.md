@@ -157,4 +157,19 @@ of this pair has changed and that the model of it is incorrect. To encourage
 behavior that tests long-untried actions, a special “bonus reward” is given on 
 simulated experiences involving these actions.
 
+## Prioritized Sweeping
+
+In the previous Dyna agents, simulated transitions are started in state–action 
+pairs selected uniformly at random from all previously experienced pairs. But 
+a uniform selection is usually not the best; planning can be much more 
+efficient if simulated transitions and updates are focused on particular 
+state–action pairs. It is natural to prioritize the updates according to a 
+measure of their urgency, and perform them in order of priority. This is the 
+idea behind *prioritized sweeping.*  
+Prioritized sweeping is just one way of distributing computations to improve 
+planning efficiency, and probably not the best way. One of prioritized 
+sweeping’s limitations is that it uses expected updates, which in stochastic 
+environments may waste lots of computation on low-probability transitions
+
+## Expected vs. Sample Updates
 
