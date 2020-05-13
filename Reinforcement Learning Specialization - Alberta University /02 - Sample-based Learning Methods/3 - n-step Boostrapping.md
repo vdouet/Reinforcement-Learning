@@ -88,3 +88,33 @@ alt="Update rule" title="Update rule" width="189" height="42" />
 </p>
 
 If *s* is terminal, then its expected approximate value is defined to be 0.
+
+## n-step Off-policy Learning
+
+For *n*-step off-policy methods the *importance sampling ratio* is calculated 
+only over the *n* actions. For example, to make a simple off-policy version of 
+*n*-step TD:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicynsteptd.png"
+alt="Update rule" title="Update rule" width="421" height="27" />
+</p>
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/offpolicynsteptd2.png"
+alt="Update rule" title="Update rule" width="206" height="63" />
+</p>
+
+If any one of the actions would never be taken by *π*, then the n-step return 
+should be given zero weight and be totally ignored. 
+
+Our previous *n*-step Sarsa update can be completely replaced by a simple 
+off-policy form:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/nstepsarsaoffpolicy.png"
+alt="Update rule" title="Update rule" width="506" height="30" />
+</p>
+
