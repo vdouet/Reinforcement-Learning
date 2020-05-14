@@ -219,6 +219,14 @@ many state–action pairs, we are often required to use sample updates. With so
 many state–action pairs, expected updates of all of them would take a very long
 time.
 
+Update from Drew Bagnell: Self-driving, robotics, and Model Based RL
++ All practical robot learning for decisions is model based
++ "It's better to die in simulation than in the real world"
++ Why? Sample complexity: It can take exponentially fewer interactions to learn
+with a model than without ("Model-based RL in Contextual Decision Processes: PAC
+bounds and Exponential Improvements over Model-free Approaches", Wen Sun et 
+al., 2019).
+
 ## Trajectory Sampling
 
 We compare two way of distributing updates.  
