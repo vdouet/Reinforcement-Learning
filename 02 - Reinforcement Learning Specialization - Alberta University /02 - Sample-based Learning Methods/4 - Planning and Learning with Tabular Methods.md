@@ -22,6 +22,15 @@ Distribution models are stronger than sample models in that they can always be
 used to produce samples. However, in many applications it is much easier to 
 obtain sample models than distribution models.
 
+A distribution model consists of the probabilities of next states and rewards 
+for possible actions. *Expected updates* require a distribution model because
+they involve computing expectations over all the possible next states and 
+rewards.
+
+A sample model produces single transitions and rewards generated according to 
+these probabilities. It is needed to simulate interacting with the environment 
+during which sample updates can be used.
+
 Given a starting state and action:
 + A sample model produces a possible transition.
 + A distribution model generates all possible transitions weighted by their 
@@ -82,8 +91,8 @@ experience.
 ## Dyna: Integrated Planning, Acting, and Learning
 
 Within a planning agent there are at least two roles for real experience:
-+ *Model Learning*: can be used to improve the model (make it more accurately 
-match the real environment).
++ *Model Learning (indirect learning)*: can be used to improve the model 
+(make it more accurately match the real environment).
 + *Direct Reinforcement Learning*: can be used to directly improve the value
 function and policy using RL methods.
 
@@ -175,9 +184,9 @@ environments may waste lots of computation on low-probability transitions
 
 One-step updates vary primarily along three binary dimensions:
 + Whether they update state values or action values.
-+ Whether they estimate the value for the optimal policy or for an arbitrary 
-given policy
-+ whether the updates are *expected updates*, considering all possible events 
++ Whether they estimate the value for the optimal policy or for an arbitrary
+given policy.
++ Whether the updates are *expected updates*, considering all possible events.
 + that might happen, or *sample updates*, considering a single sample of what 
 might happen.
 
@@ -215,7 +224,8 @@ time.
 We compare two way of distributing updates.  
 *Exhaustive sweeps*: The classical approach, from dynamic programming, is to 
 perform sweeps through the entire state (or state–action) space, updating each 
-state (or state–action pair) once per sweep. 
+state (or state–action pair) once per sweep.
+
 *Trajectory sampling*: distributes updates according to the on-policy 
 distribution (distribution observed when following the current policy), it 
 simulates explicit individual trajectories and performs updates at the state or
@@ -223,7 +233,7 @@ state–action pairs encountered along the way.
 
 Exhaustive sweeps:
 + Problematic on large tasks because there may not be time to complete even 
-one sweep
+one sweep.
 + In many tasks the vast majority of the states are irrelevant because they are
 visited only under very poor policies or with very low probability.
 
@@ -329,3 +339,20 @@ current state and for a given policy usually called the *rollout policy*. As
 decision-time planning algorithms, rollout algorithms make immediate use of 
 these action-value estimates, then discard them. The aim of a rollout algorithm
 is to improve upon the rollout policy; not to find an optimal policy.
+
+## Monte Carlo Tree Search
+
+Monte Carlo Tree Search (MCTS) is a recent and strikingly successful example 
+of decision-time planning. At its base, MCTS is a rollout algorithm but 
+enhanced by the addition of a means for accumulating value estimates obtained 
+from the Monte Carlo simulations in order to successively direct simulations 
+toward more highly-rewarding trajectories. The core idea of MCTS is to 
+successively focus multiple simulations starting at the current state by 
+extending the initial portions of trajectories that have received high 
+evaluations from earlier simulations.
+
+The striking success of decision-time planning by MCTS has deeply influenced 
+artificial intelligence, and many researchers are studying modifications and 
+extensions of the basic procedure for use in both games and single-agent 
+applications.
+
