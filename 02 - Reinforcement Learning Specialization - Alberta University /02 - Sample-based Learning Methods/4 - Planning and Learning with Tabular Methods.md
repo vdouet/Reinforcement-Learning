@@ -84,7 +84,7 @@ experience.
 Within a planning agent there are at least two roles for real experience:
 + *Model Learning*: can be used to improve the model (make it more accurately 
 match the real environment).
-+ *Direct Reinforcement Learning*: can be used to directly improve the value `
++ *Direct Reinforcement Learning*: can be used to directly improve the value
 function and policy using RL methods.
 
 The diagram below shows the possible relationship between experience, model,
@@ -173,3 +173,159 @@ environments may waste lots of computation on low-probability transitions
 
 ## Expected vs. Sample Updates
 
+One-step updates vary primarily along three binary dimensions:
++ Whether they update state values or action values.
++ Whether they estimate the value for the optimal policy or for an arbitrary 
+given policy
++ whether the updates are *expected updates*, considering all possible events 
++ that might happen, or *sample updates*, considering a single sample of what 
+might happen.
+
+These three binary dimensions give rise to eight cases, seven of which 
+correspond to specific algorithms, as shown below:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/onestepupdate.png"
+alt="Update rule" title="Update rule" width="358" height="582" />
+</p>
+
+Any of these one-step updates can be used in planning methods. For stochastic 
+problems, prioritized sweeping is always done using one of the expected 
+updates.
+
+Sample updates:
++ \+ Can be done in an absence of a distribution model
++ \+ Require less computation
++ \- Sampling error
+
+Expected updates:
++ \+ Better estimate because they are uncorrupted by sampling error
++ \- Cannot be done in an absence of a distribution model
++ \- Require more computation
+
+For expected updates the computation required is usually dominated by the 
+number of state–action pairs at which *Q* is evaluated. In large problems with 
+many state–action pairs, we are often required to use sample updates. With so 
+many state–action pairs, expected updates of all of them would take a very long
+time.
+
+## Trajectory Sampling
+
+We compare two way of distributing updates.  
+*Exhaustive sweeps*: The classical approach, from dynamic programming, is to 
+perform sweeps through the entire state (or state–action) space, updating each 
+state (or state–action pair) once per sweep. 
+*Trajectory sampling*: distributes updates according to the on-policy 
+distribution (distribution observed when following the current policy), it 
+simulates explicit individual trajectories and performs updates at the state or
+state–action pairs encountered along the way.
+
+Exhaustive sweeps:
++ Problematic on large tasks because there may not be time to complete even 
+one sweep
++ In many tasks the vast majority of the states are irrelevant because they are
+visited only under very poor policies or with very low probability.
+
+Trajectory sampling:
++ Distribution easily generated, simply interacts with the model, 
+following the current policy.
++ Efficient way of distributing updates.
+
+If trajectory sampling is done by sampling uniformly the state-action space, it
+would suffer from some of the same problems as exhaustive sweeps.
+
+In the short term, sampling according to the on-policy distribution helps by 
+focusing on states that are near descendants of the start state. If there are 
+many states and a small branching factor, this effect will be large and 
+long-lasting. In the long run, focusing on the on-policy distribution may hurt 
+because the commonly occurring states all already have their correct values. 
+Sampling them is useless, whereas sampling other states may actually perform 
+some useful work.  
+These results are not conclusive because they are only for problems generated 
+in a particular, random way, but they do suggest that sampling according to the
+on-policy distribution can be a great advantage for large problems, in 
+particular for problems in which a small subset of the state–action space is 
+visited under the on-policy distribution.
+
+## Real-time Dynamic Programming
+
+*Real-time dynamic programming*, or RTDP, is an on-policy trajectory-sampling 
+version of the value-iteration algorithm of dynamic programming. RTDP is an 
+example of an *asynchronous* DP algorithm. Asynchronous DP algorithms are not 
+organized in terms of systematic sweeps of the state set; they update state 
+values in any order whatsoever, using whatever values of other states happen to
+be available. In RTDP, the update order is dictated by the order states are 
+visited in real or simulated trajectories.  
+For certain types of tasks satisfying reasonable conditions, RTDP is guaranteed
+to find a policy that is optimal on the relevant states (*optimal partial 
+policy*) without visiting every state infinitely often, or even without 
+visiting some states at all. Those tasks are examples of *stochastic optimal 
+path problems*. Examples of this kind of task are minimum-time control tasks, 
+where each time step required to reach a goal produces a reward of -1.  
+RTDP strongly focus on subsets of the states that are relevant to the problem’s
+objective. This focus becomes increasingly narrow as learning continues. 
+Because the convergence theorem for RTDP applies to the simulations, we know 
+that RTDP will eventually focus only on relevant states, i.e., on states making
+up optimal paths.
+
+## Planning at Decision Time
+
+Planning can be used in at least two ways:
++ *Background Planning*: as seen with DP and Dyna, use planning to gradually 
+improve a policy or value function on the basis of simulated experience 
+obtained from a model (either a sample or a distribution model). Planning is 
+not focussed on the current state.
++ *Decision-time Planning*: Using simulated experience to select an action for 
+the current stateHere planning focuses on a particular state. More generally, 
+planning used in this way can look much deeper than one-step-ahead and evaluate
+action choices leading to many different predicted state and reward 
+trajectories. 
+
+In decision-time planning the values and policy are specific to the current 
+state and the action choices available there, so much so that the values and 
+policy created by the planning process are typically discarded after being used
+to select the current action. Both planning can be mixed, focus planning on the
+current state and store the results of planning.
+
+Decision-time planning is most useful in applications in which fast responses 
+are not required. If low latency action selection is the priority, it is 
+generally better doing planning in the background to compute a policy that can
+then be rapidly applied to each newly encountered state.
+
+## Heuristic Search
+
+The classical state-space planning methods in artificial intelligence are 
+decision-time planning methods collectively known as *heuristic search*. In 
+heuristic search, for each state encountered, a large tree of possible 
+continuations is considered. The approximate value function is applied to the 
+leaf nodes and then backed up toward the current state at the root. The backing
+up stops at the state–action nodes for the current state. Once the backed-up 
+values of these nodes are computed, the best of them is chosen as the current 
+action, and then all backed-up values are discarded.
+
+Our greedy, ε-greedy, and UCB action-selection methods are not unlike heuristic
+search on a smaller scale. Heuristic search can be viewed as an extension of 
+the idea of a greedy policy beyond a single step. The point of searching deeper
+than one step is to obtain better action selections. If one has a perfect model
+and an imperfect action-value function, then in fact deeper search will usually
+yield better policies.
+
+Much of the effectiveness of heuristic search is due to its search tree being
+tightly focused on the states and actions that might immediately follow the 
+current state.
+
+## Rollout Algorithms
+
+Rollout algorithms are decision-time planning algorithms based on Monte Carlo 
+control applied to simulated trajectories that all begin at the current 
+environment state. They estimate action values for a given policy by averaging 
+the returns of many simulated trajectories that start with each possible action
+and then follow the given policy. When the action-value estimates are 
+considered to be accurate enough, the action having the highest estimated value
+is executed, after which the process is carried out anew from the resulting 
+next state. They produce Monte Carlo estimates of action values only for each 
+current state and for a given policy usually called the *rollout policy*. As 
+decision-time planning algorithms, rollout algorithms make immediate use of 
+these action-value estimates, then discard them. The aim of a rollout algorithm
+is to improve upon the rollout policy; not to find an optimal policy.
