@@ -152,7 +152,7 @@ is a special case of SGD.
 One of the most important special cases of function approximation is that in 
 which the approximate function, *v̂(·,**w**)*, is a linear function of the 
 weight vector, **w**. Corresponding to every state *s*, there is a real-valued 
-vector **x***(s) = (x1(s), x2(s), ..., xd(s))* with the same number of 
+vector __x__*(s) = (x1(s), x2(s), ..., xd(s))* with the same number of 
 components as *w*. Linear methods approximate state-value function by the inner
 product between *w* and *x*(s):
 
