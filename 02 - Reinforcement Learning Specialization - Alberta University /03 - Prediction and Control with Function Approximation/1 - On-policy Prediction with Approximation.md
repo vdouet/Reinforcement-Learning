@@ -181,7 +181,7 @@ In the linear case the SGD update is:
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/linearsgdupdatz.png"
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/linearsgdupdate.png"
 alt="Update rule" title="Update rule" width="270" height="39" />
 </p>
 
