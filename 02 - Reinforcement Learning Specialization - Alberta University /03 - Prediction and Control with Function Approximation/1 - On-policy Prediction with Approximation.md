@@ -9,6 +9,7 @@ that are in some sense similar to the current one.
 *Generalization*: How can experience with a limited subset of the state space 
 be usefully generalized to produce a good approximation over a much larger 
 subset?  
+*Discrimination*: The ability to make the value of two states different.  
 We need to combine reinforcement learning methods with existing generalization 
 methods called *function approximation*.
 
@@ -147,3 +148,50 @@ which states are grouped together, with one estimated value for each group. It
 is a special case of SGD.
 
 ## Linear Methods
+
+One of the most important special cases of function approximation is that in 
+which the approximate function, *v̂(·,**w**)*, is a linear function of the 
+weight vector, **w**. Corresponding to every state *s*, there is a real-valued 
+vector **x***(s) = (x1(s), x2(s), ..., xd(s))* with the same number of 
+components as *w*. Linear methods approximate state-value function by the inner
+product between *w* and *x*(s):
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/linearv.png"
+alt="Update rule" title="Update rule" width="238" height="58" />
+</p>
+
+In this case the approximate value function is said to be *linear in the 
+weights*, or simply *linear*. The vector **x**(s) is called a *feature vector* 
+representing state *s*. For linear methods, features are *basis functions* 
+because they form a linear basis for the set of approximate functions. Features
+may be defined in many different ways.
+
+The gradient of the approximate value function with respect to **w** using SGD
+updates with linear function approximation is:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/gradientlinear.png"
+alt="Update rule" title="Update rule" width="172" height="30" />
+</p>
+
+In the linear case the SGD update is:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/linearsgdupdatz.png"
+alt="Update rule" title="Update rule" width="270" height="39" />
+</p>
+
+The semi-gradient TD(0) algorithm converge to a weight vector which is a point 
+near the local optimum called *TD fixed point*. The *linear semi-gradient
+TD(0)* also converge to this point as well as ther on-policy bootstrapping 
+methods such as linear semi-gradient DP. One-step semi-gradient *action-value* 
+methods, such as semi-gradient Sarsa(0) converge to an analogous fixed point.
+
+Critical to the these convergence results is that states are updated according 
+to the on-policy distribution. For other update distributions, bootstrapping 
+methods using function approximation may actually diverge to infinity. 
+
