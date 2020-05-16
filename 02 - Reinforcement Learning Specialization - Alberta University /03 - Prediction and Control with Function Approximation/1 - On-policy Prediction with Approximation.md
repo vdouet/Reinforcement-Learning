@@ -313,3 +313,43 @@ src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinf
 alt="Update rule" title="Update rule" width="487" height="393" />
 </p>
 
+Shown is the strength of generalization from a trained state, indicated by the 
+small black plus, to nearby states, for the case of eight tilings. If the 
+tilings are uniformly offset (above), then there are diagonal artifacts and 
+substantial variations in the generalization, whereas with asymmetrically 
+offset tilings the generalization is more spherical and homogeneous.
+
+For a two-dimensional space, we say that each tiling is offset by the 
+*displacement vector* meaning that it is offset from the previous tiling by 
+*w/n* times this vector, *w* denotes the tile width and *n* the number of 
+tilings.  
+For a continuous space of dimension *k*, a good *displacement vectors* choice 
+is to use the first odd integers (1,3,5,7,...,2*k*-1), with *n* (the number of
+tilings) set to an integer power of 2 greater than or equal to 4*k*.
+
+In choosing a tiling strategy, one has to pick the number of the tilings and 
+the shape of the tiles. The number of tilings, along with the size of the 
+tiles, determines the resolution or fineness of the asymptotic approximation.
+Tilings don't need to be grids. They can be arbitrarily shaped and non-uniform,
+while still in many cases being computationally efficient to compute.
+The shape of the tiles will determine the nature of generalization:
++ Square tiles will generalize roughly equally in each dimension.
++ Tiles that are elongated along one dimension, such as the stripe tilings, 
+will promote generalization along that dimension.
++ Diagonal stripe tiling will promote generalization along one diagonal.
+
+In practice, it is often desirable to use different shaped tiles in different 
+tilings. With multiple tilings, some horizontal, some vertical, and some 
+conjunctive, one can get everything: a preference for generalizing along each 
+dimension, yet the ability to learn specific values for conjunctions.
+
+Another useful trick for reducing memory requirements is *hashing*, a 
+consistent pseudo-random collapsing of a large tiling into a much smaller set 
+of tiles. Hashing produces tiles consisting of noncontiguous, disjoint regions 
+randomly spread throughout the state space, but that still form an exhaustive 
+partition. Through hashing, memory requirements are often reduced by large 
+factors with little loss of performance. This is possible because high 
+resolution is needed in only a small fraction of the state space. Hashing frees
+us from the curse of dimensionality in the sense that memory requirements need 
+not be exponential in the number of dimensions, but need merely match the real 
+demands of the task.
