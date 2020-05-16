@@ -310,6 +310,6 @@ centered on the trained state with no obvious asymmetries.
 <p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tilecodingoffset.png"
-alt="Update rule" title="Update rule" width="649" height="524" />
+alt="Update rule" title="Update rule" width="487" height="393" />
 </p>
 
