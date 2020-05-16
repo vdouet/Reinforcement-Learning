@@ -195,3 +195,106 @@ Critical to the these convergence results is that states are updated according
 to the on-policy distribution. For other update distributions, bootstrapping 
 methods using function approximation may actually diverge to infinity. 
 
+## Feature Construction for Linear Methods
+
+How states are represented in terms of features is critical for the convergence
+and efficientness of both data and computation for linear methods. Choosing 
+features appropriate to the task is an important way of adding prior domain 
+knowledge to reinforcement learning systems.
+
+A limitation of the linear form is that it cannot take into account any 
+interactions between features, such as the presence of feature *i* being good 
+only in the absence of feature *j*. It needs instead, or in addition, features
+for combinations of these two underlying state dimensions.
+
+### Polynomials
+
+The states of many problems are initially expressed as numbers. In these types 
+of problems, function approximation for reinforcement learning has much in 
+common with the familiar tasks of interpolation and regression. Polynomials 
+make up one of the simplest families of features used for interpolation and 
+regression. Althought, basic polynomial features do not work as well as other
+types of features in RL. It is not recommended to use polynomials for online 
+learning.
+
+### Fourier basis
+
+Another linear function approximation method is based on the time-honored 
+Fourier series, which expresses periodic functions as weighted sums of sine and
+cosine basis functions (features) of different frequencies. In reinforcement 
+learning, where the functions to be approximated are unknown, Fourier basis 
+functions are of interest because they are easy to use and can perform well in 
+a range of reinforcement learning problems. However, Fourier features have 
+trouble with discontinuities because it is diffcult to avoid “ringing” around 
+points of discontinuity unless very high frequency basis functions are 
+included.
+
+### Coarse Coding
+
+In a task in which the natural representation of the state set is a continuous 
+two-dimensional space. One kind of representation for this case is made up of 
+features corresponding to circles in state space. If the state is inside a 
+circle, then the corresponding feature has the value 1 and is said to be 
+*present*; otherwise the feature is 0 and is said to be *absent*. This kind of 
+1–0-valued feature is called a *binary feature*. 
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/coarsecoding.png"
+alt="Update rule" title="Update rule" width="275" height="245" />
+</p>
+
+Representing a state with features that overlap in this way
+(although they need not be circles or binary) is known as *coarse coding*. The 
+approximate value function will be affected at all states within the union of 
+the circles, with a greater effect the more circles a point has “in common” 
+with the state. If the circles are small, then the generalization will be over 
+a short distance, if they are large, it will be over a large distance, if the
+shape of the features are not strictly circular, but are elongated in one 
+direction, then generalization will be similarly affected.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/coarsecoding2.png"
+alt="Update rule" title="Update rule" width="642" height="502" />
+</p>
+
+Initial generalization from one point to another is controlled by the size and
+shape of the receptive fields, but acuity, the finest discrimination ultimately
+possible, is controlled more by the total number of features.
+
+### Tile Coding
+
+Tile coding is a form of coarse coding for multi-dimensional continuous spaces 
+that is flexible and computationally efficient. It may be the most practical 
+feature representation for modern sequential digital computers.
+
+In tile coding the receptive fields of the features are grouped into partitions
+of the state space. Each such partition is called a *tiling*, and each element
+of the partition is called a *tile*. Generalization is done to all states 
+within the same tile and nonexistent to states outside it. To get true coarse 
+coding with tile coding, multiple tilings are used, each offset by a fraction 
+of a tile width.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tilecoding.png"
+alt="Update rule" title="Update rule" width="662" height="240" />
+</p>
+
+In the left of the picture, the state indicated by the white spot, falls in 
+exactly one tile in each of the four tilings. These four tiles correspond to 
+four features that become active when the state occurs. The feature vector 
+**x**(s) has one component for each tile in each tiling. In this example there 
+are 4 x 4 x 4 = 64 components, all of which will be 0 except for the four 
+corresponding to the tiles that s falls within.
+
+An advantage of tile coding is that, because it works with partitions, the 
+overall number of features that are active at one time is the same for any 
+state. Exactly one feature is present in each tiling, so the total number of 
+features present is always the same as the number of tilings. This allows the 
+step-size parameter, *α*, to be set in an easy, intuitive way. For example, 
+choosing *α* = *1/n* , where *n* is the number of tilings, results in exact 
+one-trial learning (*v̂(s,__w__t+1) = v*). Usually one wishes to change more 
+slowly than this, to allow for generalization and stochastic variation in 
+target outputs
