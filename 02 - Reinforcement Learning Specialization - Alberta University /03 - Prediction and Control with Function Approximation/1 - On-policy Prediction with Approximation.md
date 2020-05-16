@@ -187,7 +187,7 @@ alt="Update rule" title="Update rule" width="270" height="39" />
 
 The semi-gradient TD(0) algorithm converge to a weight vector which is a point 
 near the local optimum called *TD fixed point*. The *linear semi-gradient
-TD(0)* also converge to this point as well as ther on-policy bootstrapping 
+TD(0)* also converge to this point as well as the on-policy bootstrapping 
 methods such as linear semi-gradient DP. One-step semi-gradient *action-value* 
 methods, such as semi-gradient Sarsa(0) converge to an analogous fixed point.
 
