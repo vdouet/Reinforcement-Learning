@@ -367,7 +367,7 @@ to the feature’s width, *σi*:
 <p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/rbf.png"
-alt="Update rule" title="Update rule" width="149" height="43" />
+alt="Update rule" title="Update rule" width="199" height="58" />
 </p>
 
 The norm or distance metric of course can be chosen in whatever way seems most 
