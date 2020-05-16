@@ -272,9 +272,9 @@ feature representation for modern sequential digital computers.
 In tile coding the receptive fields of the features are grouped into partitions
 of the state space. Each such partition is called a *tiling*, and each element
 of the partition is called a *tile*. Generalization is done to all states 
-within the same tile and nonexistent to states outside it. To get true coarse 
-coding with tile coding, multiple tilings are used, each offset by a fraction 
-of a tile width.
+within the same tile, proportional to the number of tiles in common, and 
+nonexistent to states outside it. To get true coarse coding with tile coding, 
+multiple tilings are used, each offset by a fraction of a tile width.
 
 <p align="center">
 <img
@@ -300,4 +300,16 @@ slowly than this, to allow for generalization and stochastic variation in
 target outputs. For example *α* = *1/10n* in which case the estimate for the 
 trained state would move one-tenth of the way to the target in one update, and 
 neighboring states will be moved less, proportional to the number of tiles they
-have in common.
+have in common. Tile coding also gains computational advantages from its use of
+binary feature vectors.
+
+The choice of how to offset the tilings from each other affects generalization.
+Asymmetrical offsets are preferred in tile coding because they are all well 
+centered on the trained state with no obvious asymmetries.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/tilecodingoffset.png"
+alt="Update rule" title="Update rule" width="649" height="524" />
+</p>
+
