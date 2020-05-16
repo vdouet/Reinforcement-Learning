@@ -256,7 +256,7 @@ direction, then generalization will be similarly affected.
 <p align="center">
 <img
 src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/coarsecoding2.png"
-alt="Update rule" title="Update rule" width="642" height="502" />
+alt="Update rule" title="Update rule" width="642" height="201" />
 </p>
 
 Initial generalization from one point to another is controlled by the size and
@@ -297,4 +297,7 @@ step-size parameter, *α*, to be set in an easy, intuitive way. For example,
 choosing *α* = *1/n* , where *n* is the number of tilings, results in exact 
 one-trial learning (*v̂(s,*__w__*t+1) = v*). Usually one wishes to change more 
 slowly than this, to allow for generalization and stochastic variation in 
-target outputs
+target outputs. For example *α* = *1/10n* in which case the estimate for the 
+trained state would move one-tenth of the way to the target in one update, and 
+neighboring states will be moved less, proportional to the number of tiles they
+have in common.
