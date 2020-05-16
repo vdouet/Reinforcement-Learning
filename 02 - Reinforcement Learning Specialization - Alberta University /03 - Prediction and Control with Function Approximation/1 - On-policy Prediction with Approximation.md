@@ -295,6 +295,6 @@ state. Exactly one feature is present in each tiling, so the total number of
 features present is always the same as the number of tilings. This allows the 
 step-size parameter, *α*, to be set in an easy, intuitive way. For example, 
 choosing *α* = *1/n* , where *n* is the number of tilings, results in exact 
-one-trial learning (*v̂(s,__w__ t+1) = v*). Usually one wishes to change more 
+one-trial learning (*v̂(s,*__w__*t+1) = v*). Usually one wishes to change more 
 slowly than this, to allow for generalization and stochastic variation in 
 target outputs
