@@ -109,7 +109,7 @@ def approximate_v(num_episodes):
 
     # Keep track at the value estimate at near the exit and at the left side
     near_exit_coord = (0.43, 0.054)
-    left_side_cood = (-1.1, 0.001)
+    left_side_coord = (-1.1, 0.001)
     near_exit = np.zeros((3, int(num_episodes / 1000)))
     left_side = np.zeros((3, int(num_episodes / 1000)))
     x = [i for i in range(near_exit.shape[1])]
@@ -133,7 +133,7 @@ def approximate_v(num_episodes):
                 # Update near exit and left side value every 1000 games.
                 state = aggregate_state(pos_bins, vel_bins, near_exit_coord)
                 near_exit[k][idx] = model.calculate_v(state)
-                state = aggregate_state(pos_bins, vel_bins, left_side_cood)
+                state = aggregate_state(pos_bins, vel_bins, left_side_coord)
                 left_side[k][idx] = model.calculate_v(state)
                 # Decay the learning rate
                 model.alpha_decay += 0.1
