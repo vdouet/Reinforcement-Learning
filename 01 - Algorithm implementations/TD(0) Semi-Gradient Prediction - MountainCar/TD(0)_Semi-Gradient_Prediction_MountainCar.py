@@ -85,7 +85,7 @@ def tile_state(pos_bins, vel_bins, obs, n_bins=8, n_layers=8):
                 # There is also a problem here with the original code
                 # the idx equation is wrong because we are wasting space
                 # in tiled_state with index values that will never be used (for
-                # example it starts at index 3).
+                # example it starts at index 3 with the original idx equation).
                 # idx should be: (x * y) + (row * n_tiles**2) - 1
                 # If we do that we are not wasting space in the array.
                 # This is because in the course, the first possible value for
