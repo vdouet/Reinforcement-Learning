@@ -414,6 +414,6 @@ alt="Update rule" title="Update rule" width="150" height="46" />
 
 Where **x** is a random feature vector chosen from the same distribution as 
 input vectors will be in the SGD. This method works best if the feature vectors
-do not vary greatly in length; ideally **xTx** is a constant.
+do not vary greatly in length; ideally **x**T**x** is a constant.
 
 ## Nonlinear Function Approximation: Artificial Neural Networks
