@@ -390,3 +390,30 @@ especially, is greater computational complexity and, often, more manual tuning
 before learning is robust and efficient.
 
 ## Selecting Step-Size Parameters Manually
+
+Most SGD methods require the designer to select an appropriate step-size 
+parameter *α*. Slowly decreasing step-size sequence are sufficient to guarantee
+convergence (stochastic approximation theory), but these tend to result in 
+learning that is too slow.  
+The classical choice *αt = 1/t*, which produces sample averages in tabular MC 
+methods, is not appropriate for TD methods, for nonstationary problems, or for 
+any method using function approximation.  
+For linear methods, there are recursive least-squares methods that set an 
+optimal *matrix* step size, and these methods can be extended to TD learning,
+but these require *O(d^2)* step-size parameters, or *d* times more parameters 
+than we are learning.  
+For linear function approximation, if you wanted to learn in about *τ* 
+experiences with substantially the same feature vector, a good  rule of thumb 
+for setting the step-size parameter of linear SGD methods is:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/sgdstepsize.png"
+alt="Update rule" title="Update rule" width="150" height="46" />
+</p>
+
+Where **x** is a random feature vector chosen from the same distribution as 
+input vectors will be in the SGD. This method works best if the feature vectors
+do not vary greatly in length; ideally **xTx** is a constant.
+
+## Nonlinear Function Approximation: Artificial Neural Networks
