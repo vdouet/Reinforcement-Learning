@@ -417,3 +417,84 @@ input vectors will be in the SGD. This method works best if the feature vectors
 do not vary greatly in length; ideally **x**T**x** is a constant.
 
 ## Nonlinear Function Approximation: Artificial Neural Networks
+
+Artificial neural networks (ANNs) are widely used for nonlinear function 
+approximation.
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/ann.png"
+alt="Update rule" title="Update rule" width="288" height="227" />
+</p>
+
+This feedforward neural network is composed of 1 input layer with 4 input units
+2 hidden layers and 1 output layer with 2 output units. A real-valued weight is
+associated with each link. A weight roughly corresponds to the efficacy of a 
+synaptic connection in a real neural network. If an ANN has at least one loop 
+in its connections, it is a recurrent rather than a feedforward ANN.
+
+The units are typically semi-linear units, they compute a weighted sum of their
+input signals and then apply to the result a nonlinear function, called the 
+*activation function* to produce the unit’s output, or activation. The 
+activation of each output unit of a feedforward ANN is a nonlinear function of 
+the activation patterns over the network’s input units. The functions are 
+parameterized by the network’s connection weights.
+
+Training the hidden layers of an ANN is a way to automatically create features 
+appropriate for a given problem so that hierarchical representations can be 
+produced without relying exclusively on hand-crafted features.  
+In common supervised learning case, the objective function is the expected 
+error, or loss, over a set of labeled training examples. In RL, ANNs can use TD
+errors to learn value functions, or they can aim to maximize expected reward as
+in a gradient bandit or a policy-gradient algorithm.
+
+To update weights in an ANN, backpropagation is used which consists of 
+alternating forward and backward passes through the network. Each forward pass 
+computes the activation of each unit given the current activations of the 
+network’s input units. After each forward pass, a backward pass efficiently 
+computes a partial derivative for each weight. 
+
+We can use Deep Neural Networks as a function approximator to represent:
++ Policy
++ Value function
++ Model
+
+We need to choose a corresponding loss function e.g.:
++ Policy gradient (for policy-based RL)
++ TD error (for value-based RL)
++ Next-step prediction error (for model-based RL)
+
+We optimise this loss function by gradient descent.
+
+Ex: We can use one-hot encoding of the current state number as an input to our
+ANN and its output will be the estimated state value:
+
+<p align="center">
+<img
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/ann2.png"
+alt="Update rule" title="Update rule" width="451" height="338" />
+</p>
+
+networks are powerful function approximators capable of representing a wide 
+class of functions. They are also capable of producing features without 
+exclusively relying on hand-crafted mechanisms. On the other hand, compared to 
+a linear function approximator with tile-coding, neural networks can be less 
+sample efficient.
+
+## Least-Squares TD
+
+The *Least-Squares TD algorithm* or *LSTD* directly compute the TD fixed point.
+This algorithm is the most data efficient form of linear TD(0), but it is also 
+more expensive computationally.
+
+Whether the greater data efficiency of LSTD is worth the computational expense 
+depends on how large *d* is, how important it is to learn quickly, and the 
+expense of other parts of the system. LSTD does not require a step size, but it
+does requires *ε*:
++ if *ε* chosen too small the sequence of inverses can vary wildly.
++ if *ε* is chosen too large then learning is slowed. 
+In addition, LSTD’s lack of a step-size parameter means that it never forgets. 
+This is sometimes desirable, but it is problematic if the target policy π 
+changes as it does in RL and GPI. In control applications, LSTD typically has 
+to be combined with some other mechanism to induce forgetting, mooting any 
+initial advantage of not requiring a step-size parameter.
