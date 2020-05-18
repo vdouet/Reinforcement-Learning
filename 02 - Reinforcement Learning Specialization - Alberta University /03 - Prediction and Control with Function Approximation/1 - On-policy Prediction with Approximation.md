@@ -492,9 +492,61 @@ depends on how large *d* is, how important it is to learn quickly, and the
 expense of other parts of the system. LSTD does not require a step size, but it
 does requires *ε*:
 + if *ε* chosen too small the sequence of inverses can vary wildly.
-+ if *ε* is chosen too large then learning is slowed. 
++ if *ε* is chosen too large then learning is slowed.
+
 In addition, LSTD’s lack of a step-size parameter means that it never forgets. 
 This is sometimes desirable, but it is problematic if the target policy π 
 changes as it does in RL and GPI. In control applications, LSTD typically has 
 to be combined with some other mechanism to induce forgetting, mooting any 
 initial advantage of not requiring a step-size parameter.
+
+## Memory-based Function Approximation
+
+Memory-based function approximation methods are very different. They simply 
+save training examples in memory as they arrive without updating any 
+parameters. Then, whenever a query state’s value estimate is needed, a set of 
+examples is retrieved from memory and used to compute a value estimate for the 
+query state. This approach is sometimes called *lazy learning* because 
+processing training examples is postponed until the system is queried to 
+provide an output.
+
+Memory-based function approximation methods are prime examples of 
+*nonparametric* methods. Unlike parametric methods, the approximating 
+function’s form is not limited to a fixed parameterized class of functions, 
+such as linear functions or polynomials, but is instead determined by the 
+training examples themselves, together with some means for combining them to 
+output estimated values for query states.
+
+The simplest example of the memory-based approach is the* nearest neighbor* 
+method, which simply finds the example in memory whose state is closest to the 
+query state and returns that example’s value as the approximate value of the 
+query state.
+
+## Kernel-based Function Approximation
+
+Kernel functions numerically express how *relevant* knowledge about any state 
+is to any other state. *Kernel regression* is the memory-based method that 
+computes a kernel weighted average of the targets of *all* examples stored in 
+memory, assigning the result to the query state.
+
+A common kernel is the Gaussian radial basis function (RBF) used in RBF 
+function approximation. Kernel regression with an RBF is memory based, the RBFs
+are centered on the states of the stored examples. It is also nonparametric, 
+there are no parameters to learn.
+
+In some cases, kernel regression is much less complex than directly using a 
+linear parametric method with states represented by feature vectors. This is 
+the so-called “*kernel trick*” that allows effectively working in the 
+high-dimension of an expansive feature space while actually working only with 
+the set of stored training examples.
+
+## Looking Deeper at On-policy Learning: Interest and Emphasis
+
+The algorithmsseen so far have treated all the states encountered equally, as 
+if they were all equally important. In some cases, however, we are more 
+interested in some states than others. For this we can use two new concepts:
++ *Interest*: indicating the degree to which we are interested in accurately 
+valuing the state (or state–action pair) at time t.
++ *Emphasis*: multiplies the learning update and thus emphasizes or 
+de-emphasizes the learning done at time t.
+
