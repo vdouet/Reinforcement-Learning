@@ -18,10 +18,28 @@ alt="RBF function" title="RBF function" width="204" height="60" />
 Where:
 + It is a non-normalized Gaussian
 + x is the input vector
-+ c is the center / exemplar vector
++ c is the center / exemplar vector. The number of c is the number of hidden
+units in the RBF Network. Each units will have a different center.
 + Only depends on distance between x and c, not direction, hence the term 
 "radial".
 + Max is 1, when x == c, approaches O as x goes further away from c.
+
+## How to choose c ?
+
+### Support Vector Machines (SVM)
+
++ SVMs also use RBF kernels
++ Number of exemplars == number of training points
++ With SVMs, the exemplars are the training points
++ SVMs have fallen out of favor because training is O(N^2), prediction is O(N),
+with N = number of training samples
+
+### Another method
+
++ Just sample a few points from the state space
++ Can then choose the number of exemplars
++ How many exemplars we choose is like how many hidden units in a neural
+network. It is a hyperparameter that must be tuned.
 
 ## From "Reinforcement Learning - An introduction" by Richard S. Sutton
 
