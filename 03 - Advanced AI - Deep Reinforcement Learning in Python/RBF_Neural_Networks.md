@@ -9,7 +9,7 @@ kernel
 
 <p align="center">
 <img
-src="https://github.com/vdouet/Reinforcement-Learning/blob/master/02%20-%20Reinforcement%20Learning%20Specialization%20-%20Alberta%20University%20/Images/actionvaluesemigradient.png"
-alt="Update rule" title="Update rule" width="363" height="38" />
+src="https://github.com/vdouet/Reinforcement-Learning/blob/master/03%20-%20Advanced%20AI%20-%20Deep%20Reinforcement%20Learning%20in%20Python/Images/RBF_function.png"
+alt="RBF function" title="RBF function" width="204" height="60" />
 </p>
 
