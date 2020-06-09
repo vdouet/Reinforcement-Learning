@@ -4,7 +4,7 @@ This repository contains all the notes from the various courses I took on
 Reinforcement Learning. It also contains RL algorithms implementations in
 Python and other project code.
 
-## Book
+## Books
 
 + Reinforcement Learning: An Introduction Second Edition by Richard S. Sutton and Andrew G. Barto - PDF (done)
   + http://incompleteideas.net/book/the-book-2nd.html 
