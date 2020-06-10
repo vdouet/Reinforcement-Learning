@@ -39,3 +39,26 @@ the algorithm for the paper published in *Nature (Human-Level Control Through De
 src="./Images/DQN_algo.png"
 alt="Update rule" title="Update rule" width="482" height="393" />
 </p>
+
+# DQN on Pong
+
+## Wrappers
+
+A set of wrappers from the OpenAI baselines are used to adress Atari platform features that make learning long and unstable. Those wrappers from OpenAI are applied to popular benchmark to establish the common ground for comparing methods.
+
+The list of Atari transformations includes:
++ Converting individual lives in the game into separate episodes.
++ At the beginning of the game, performing a random amount of no-op actions.
+-> ex. to skip intro screen.
++ Making an action decision every K steps, where K is usually 4 or 3.
+-> Repeat the chosen action on intermediate frames.
++ Taking the maximum of every pixel in the last two frames and using it as an observation.
+-> Counter the flickering effect on some Atari games.
++ Pressing **FIRE** at the beginning of the game.
+-> Required to start some games.
++ Scaling every frame down to 84x84 single-color.
++ Stacking several (usually 4) subsequent frames together to give the network information about the dynamics of the game's objects.
++ Clipping the reard to -1, 0 and 1.
+-> This normalize the rewards received in different games.
++ Convert the observation (image from the screen) into floats and rescale in the range \[0.0...1.0]
+
