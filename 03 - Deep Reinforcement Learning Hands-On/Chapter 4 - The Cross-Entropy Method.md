@@ -11,16 +11,23 @@ network (NN)) produces the policy.
 
 Observaton s ==> Trainable functio (NN) ==> Policy
 
-The core of the cross-entropy method is to throw away bad episodes and train 
+The core of the cross-entropy method is to throw away bad episodes and train
 on better ones:
 
 1. Play N number of episodes using our current model and environment
 2. Calculate the total reward for every episode and decide on a reward boundary.
 Usually, we use some percentile of all rewards, such as 50th or 70th.
 3. Throw away all episodes with a reward below the boundary.
-4. Train on the remaining "elite" episodes using observations as the input and 
+4. Train on the remaining "elite" episodes using observations as the input and
 issued actions as the desired output.
 5. Repeat from step 1 until we become satisfied with the result.
 
 Despite the simplicity of this method, it works well on simple environments,
 it is easy to implement and quite robust to hyperparameters changing.
+
+Limitation of the cross-entropy method:
++ For training our episodes have to be finite and preferably short.
++ The total reward for the episodes should have enough variability to separate
+good episodes from bad ones.
++ There is no intermediate indication about whether the agent has succeeded or
+failed.
