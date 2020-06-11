@@ -62,3 +62,4 @@ The list of Atari transformations includes:
 -> This normalize the rewards received in different games.
 + Convert the observation (image from the screen) into floats and rescale in the range \[0.0...1.0]
 
+Some of those wrapper are not used and not included for Pong. Sometimes, when the DQN is not converging, the problem is not in the code but in the wrongly wrapped environment.

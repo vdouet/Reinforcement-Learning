@@ -83,6 +83,7 @@ def filter_batch(batch, percentile):
 
     return train_observations_t, train_actions_t, reward_bound, reward_mean
 
+
 if __name__ == "__main__":
     env = gym.make("CartPole-v0")
     env = gym.wrappers.Monitor(env, directory="mon", force=True)
