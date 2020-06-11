@@ -12,6 +12,7 @@ import torch.optim as optim
 
 from tensorboardX import SummaryWriter
 
+
 DEFAULT_ENV_NAME = "PongNoFrameskip-v4"
 MEAN_REWARD_BOUND = 19.0
 
@@ -83,17 +84,17 @@ class Agent:
             _, act_t = torch.max(q_vals_t, dim=1)
             action = int(act_t.item())
 
-            state_, reward, done, _ = self.env.step(action)
-            self.total_reward += reward
+        state_, reward, done, _ = self.env.step(action)
+        self.total_reward += reward
 
-            exp = Experience(self.state, action, reward, done, state_)
-            self.exp_buffer.append(exp)
-            self.state = state_
+        exp = Experience(self.state, action, reward, done, state_)
+        self.exp_buffer.append(exp)
+        self.state = state_
 
-            if done:
-                done_reward = self.total_reward
-                self._reset()
-            return done_reward
+        if done:
+            done_reward = self.total_reward
+            self._reset()
+        return done_reward
 
 
 def calc_loss(batch, net, tgt_net, device="cpu"):
@@ -107,7 +108,7 @@ def calc_loss(batch, net, tgt_net, device="cpu"):
 
     states_t = torch.tensor(np.array(states, copy=False)).to(device)
     states_t_ = torch.tensor(np.array(states_, copy=False)).to(device)
-    actions_t = torch.tensor(actions).to(device)
+    actions_t = torch.LongTensor(actions).to(device)
     rewards_t = torch.tensor(rewards).to(device)
     done_mask = torch.BoolTensor(dones).to(device)
 
@@ -122,7 +123,7 @@ def calc_loss(batch, net, tgt_net, device="cpu"):
         next_state_values.detach()
 
     expected_state_action_value = GAMMA * next_state_values + rewards_t
-    return nn.MSELoss(state_action_values, expected_state_action_value)
+    return nn.MSELoss()(state_action_values, expected_state_action_value)
 
 
 if __name__ == "__main__":
