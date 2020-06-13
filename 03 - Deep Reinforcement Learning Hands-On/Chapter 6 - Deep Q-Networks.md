@@ -110,7 +110,7 @@ In Double DQN the actions for the next state are choosen using the trained netwo
 
 <p align="center">
 <img
-src="./Images/targetDoubleDQN.png"
+src="./Images/TargetDoubleDQN.png"
 alt="Update rule" title="Update rule" width="366" height="44" />
 </p>
 
