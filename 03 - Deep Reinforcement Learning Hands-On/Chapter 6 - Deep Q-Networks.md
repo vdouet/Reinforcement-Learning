@@ -79,7 +79,12 @@ Most important improvements to DQN:
 By unrolling the Bellman update used in Q-learning we can speed up training. We can apply this to our DQN by replacing one-step transition sampling with longer transition sequences of *n*-steps. Multiple steps improve the propagation speed of values which improves convergence.
 But the more steps on which we unroll the Bellman equation, the more incorrect our update could be. The situation is even made worse by large experience replay buffer as it will increase the chance of getting transitions obtained from the old bad policy. This will lead to a wrong update of the current *Q* approximation and can easily break our learning process.
 
-For more information see "Chapter 7: *n*-step Boostrapping" from "Reinforcement Learning - An introduction, Second Ed." by Richard S. Sutton.
++ The *n*-step method will turn the DQN into an on-policy method and make our large experience buffer not as useful.
++ We can still use an *n*-step DQN if it will help to speed our DQNs
++ Need to be modest with the selection of *n*. Small values of 2 or 3 usually work well because our trajectories in the experience buffer are not that different from one-step transitions.
++ Convergence speed usaully improves proportionally but large values of *n* can break the training process.
+
+For more information on *n*-step see "Chapter 7: *n*-step Boostrapping" from "Reinforcement Learning - An introduction, Second Ed." by Richard S. Sutton.
 
 #### Off-policy advantages
 
@@ -88,3 +93,25 @@ Off-policy methods allow you to train on the previous large history of data or e
 #### On-policy advantages
 
 On-policy methods are typically faster, but require much more fresh data from the environment, which can be costly.
+
+### Double-DQN
+
+From the paper "*Deep Reinforcement Learning with Double Q-Learning*", 2015 from Deepmind. It was demonstrated that basic DQN tends to overestimate values for *Q* which may be harmful for the training performance and can lead to suboptimal policies. This comes from the max operation which creates a positive bias towards the *Q* estimations. As a solution the authors proposed modifying the Bellman update:
+
+Target value for *Q* in basic DQN:
+
+<p align="center">
+<img
+src="./Images/targetDQN.png"
+alt="Update rule" title="Update rule" width="268" height="41" />
+</p>
+
+In Double DQN the actions for the next state are choosen using the trained network but taking values of *Q* from the target network:
+
+<p align="center">
+<img
+src="./Images/targetDoubleDQN.png"
+alt="Update rule" title="Update rule" width="366" height="44" />
+</p>
+
+### Noisy Networks
