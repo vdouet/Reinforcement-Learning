@@ -63,3 +63,28 @@ The list of Atari transformations includes:
 + Convert the observation (image from the screen) into floats and rescale in the range \[0.0...1.0]
 
 Some of those wrapper are not used and not included for Pong. Sometimes, when the DQN is not converging, the problem is not in the code but in the wrongly wrapped environment.
+
+## DQN Extensions
+
+Most important improvements to DQN:
+
++ *n*-step DQN: how to improve convergence speed and stability with a simple unrolling of the Bellman equation, and why it's not an ultimate solution
++ Double DQN: how to deal with DQN overestimation of the values of the actions
++ Noisy networks: how to make exploration more efficient by adding noise to the network weights
++ Dueling DQN: how to improve convergence speed by making our network's architecture represent more closely the problem that we are solving
++ Categorical DQN: how to go beyond the single expected value of the action and work with full distributions
+
+### *n*-step DQN
+
+By unrolling the Bellman update used in Q-learning we can speed up training. We can apply this to our DQN by replacing one-step transition sampling with longer transition sequences of *n*-steps. Multiple steps improve the propagation speed of values which improves convergence.
+But the more steps on which we unroll the Bellman equation, the more incorrect our update could be. The situation is even made worse by large experience replay buffer as it will increase the chance of getting transitions obtained from the old bad policy. This will lead to a wrong update of the current *Q* approximation and can easily break our learning process.
+
+For more information see "Chapter 7: *n*-step Boostrapping" from "Reinforcement Learning - An introduction, Second Ed." by Richard S. Sutton.
+
+#### Off-policy advantages
+
+Off-policy methods allow you to train on the previous large history of data or even on human demonstrations, but they are usually slower to converge.
+
+#### On-policy advantages
+
+On-policy methods are typically faster, but require much more fresh data from the environment, which can be costly.
